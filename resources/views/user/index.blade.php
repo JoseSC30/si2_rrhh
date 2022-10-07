@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Empleado Id</th>
+										<th>Empleado</th>
 										<th>Rol Id</th>
 										<th>Email</th>
 
