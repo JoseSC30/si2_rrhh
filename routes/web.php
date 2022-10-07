@@ -25,4 +25,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('rols', App\Http\Controllers\RolController::class);
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
-Route::resource('hola', App\Http\Controllers\UserController::class);
