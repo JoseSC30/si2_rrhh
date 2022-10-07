@@ -27,4 +27,3 @@ Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('chau1', App\Http\Controllers\UserController::class);
 Route::resource('chau3', App\Http\Controllers\UserController::class);
-Route::resource('chau4', App\Http\Controllers\UserController::class);
