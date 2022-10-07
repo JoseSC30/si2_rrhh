@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    Libro
+    Rol
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Libro') }}
+                                {{ __('Rol') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('rols.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -38,26 +38,22 @@
                                         
 										<th>Nombre</th>
 										<th>Descripcion</th>
-										<th>Anio</th>
-										<th>Detalle</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($libros as $libro)
+                                    @foreach ($rols as $rol)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $libro->nombre }}</td>
-											<td>{{ $libro->descripcion }}</td>
-											<td>{{ $libro->anio }}</td>
-											<td>{{ $libro->detalle }}</td>
+											<td>{{ $rol->nombre }}</td>
+											<td>{{ $rol->descripcion }}</td>
 
                                             <td>
-                                                <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('rols.destroy',$rol->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('rols.show',$rol->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('rols.edit',$rol->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -70,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $libros->links() !!}
+                {!! $rols->links() !!}
             </div>
         </div>
     </div>

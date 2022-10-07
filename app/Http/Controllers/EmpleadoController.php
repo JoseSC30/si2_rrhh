@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Libro;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
 /**
- * Class LibroController
+ * Class EmpleadoController
  * @package App\Http\Controllers
  */
-class LibroController extends Controller
+class EmpleadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::paginate();
+        $empleados = Empleado::paginate();
 
-        return view('libro.index', compact('libros'))
-            ->with('i', (request()->input('page', 1) - 1) * $libros->perPage());
+        return view('empleado.index', compact('empleados'))
+            ->with('i', (request()->input('page', 1) - 1) * $empleados->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        $libro = new Libro();
-        return view('libro.create', compact('libro'));
+        $empleado = new Empleado();
+        return view('empleado.create', compact('empleado'));
     }
 
     /**
@@ -43,12 +43,12 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Libro::$rules);
+        request()->validate(Empleado::$rules);
 
-        $libro = Libro::create($request->all());
+        $empleado = Empleado::create($request->all());
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro created successfully.');
+        return redirect()->route('empleados.index')
+            ->with('success', 'Empleado created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class LibroController extends Controller
      */
     public function show($id)
     {
-        $libro = Libro::find($id);
+        $empleado = Empleado::find($id);
 
-        return view('libro.show', compact('libro'));
+        return view('empleado.show', compact('empleado'));
     }
 
     /**
@@ -72,26 +72,26 @@ class LibroController extends Controller
      */
     public function edit($id)
     {
-        $libro = Libro::find($id);
+        $empleado = Empleado::find($id);
 
-        return view('libro.edit', compact('libro'));
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Libro $libro
+     * @param  Empleado $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Libro $libro)
+    public function update(Request $request, Empleado $empleado)
     {
-        request()->validate(Libro::$rules);
+        request()->validate(Empleado::$rules);
 
-        $libro->update($request->all());
+        $empleado->update($request->all());
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro updated successfully');
+        return redirect()->route('empleados.index')
+            ->with('success', 'Empleado updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class LibroController extends Controller
      */
     public function destroy($id)
     {
-        $libro = Libro::find($id)->delete();
+        $empleado = Empleado::find($id)->delete();
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro deleted successfully');
+        return redirect()->route('empleados.index')
+            ->with('success', 'Empleado deleted successfully');
     }
 }

@@ -17,8 +17,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+//
+     static $rules = [
+		'rol_id' => 'required',
+		'empleado_id' => 'required',
+		'email' => 'required',
+		'password' => 'required',
+    ];
+
+    protected $perPage = 20;
+//
+    
     protected $fillable = [
-        'name',
+        'rol_id',
+        'empleado_id',
         'email',
         'password',
     ];
@@ -41,4 +53,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rols()
+    {
+        return $this->hasOne('App\Models\Rol','id','rol_id');
+    }
+
+    public function empleados()
+    {
+        return $this->hasOne('App\Models\Empleado','id','empleado_id');
+    }
 }

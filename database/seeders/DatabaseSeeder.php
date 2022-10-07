@@ -5,6 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\Empleado;
+use App\Models\Rol;
+use App\Models\User;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,5 +24,34 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $empleado = new Empleado;
+
+        $empleado->puestolaboral_id = 'Sin Asignar';
+        $empleado->usuariomovil_id = 'Sin Asignar';
+
+        $empleado->nombre = 'JUAN GOMEZ';
+        $empleado->ci='12345678';
+        $empleado->fnacimiento='2000-01-01';
+        $empleado->sexo='M';
+        $empleado->direccion='Avenida Santos Dumont';
+    
+        $empleado->save();
+
+        $rol = new Rol;
+        $rol->nombre = 'Administrador';
+        $rol->descripcion = 'Tiene todos los permisos del sistema';
+
+        $rol->save();
+        
+        $user = new User;
+
+        $user->empleado_id='1';
+        $user->rol_id='1';
+
+        $user->email='admin@mail.com';
+        $user->password=bcrypt('password');
+        $user->save();
+
     }
 }

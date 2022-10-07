@@ -320,18 +320,18 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'casa',
-            'url'  => 'usuariomovils',
+            'text' => 'ROLES',
+            'url'  => 'rols',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'USUARIO MOVIL',
-            'url'  => 'usuariomovils',
+            'text' => 'EMPLEADO',
+            'url'  => 'empleados',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'LIBROS',
-            'url'  => 'libros',
+            'text' => 'USUARIOS',
+            'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

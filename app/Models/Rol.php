@@ -5,27 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Libro
+ * Class Rol
  *
  * @property $id
  * @property $nombre
  * @property $descripcion
- * @property $anio
- * @property $detalle
  * @property $created_at
  * @property $updated_at
  *
+ * @property User[] $users
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Libro extends Model
+class Rol extends Model
 {
     
     static $rules = [
 		'nombre' => 'required',
 		'descripcion' => 'required',
-		'anio' => 'required',
-		'detalle' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,8 +32,16 @@ class Libro extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','descripcion','anio','detalle'];
+    protected $fillable = ['nombre','descripcion'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->hasMany('App\Models\User', 'rol_id', 'id');
+    }
+    
 
 }

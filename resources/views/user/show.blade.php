@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $libro->name ?? 'Show Libro' }}
+    {{ $user->name ?? 'Show User' }}
 @endsection
 
 @section('content')
@@ -11,30 +11,26 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Libro</span>
+                            <span class="card-title">Show User</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('libros.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $libro->nombre }}
+                            <strong>Empleado Id:</strong>
+                            {{ $user->empleado_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $libro->descripcion }}
+                            <strong>Rol Id:</strong>
+                            {{ $user->rol_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Anio:</strong>
-                            {{ $libro->anio }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Detalle:</strong>
-                            {{ $libro->detalle }}
+                            <strong>Email:</strong>
+                            {{ $user->email }}
                         </div>
 
                     </div>
