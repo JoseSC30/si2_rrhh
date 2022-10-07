@@ -26,3 +26,4 @@ Route::resource('rols', App\Http\Controllers\RolController::class);
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('chau1', App\Http\Controllers\UserController::class);
+Route::resource('chau2', App\Http\Controllers\UserController::class);
