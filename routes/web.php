@@ -26,9 +26,6 @@ Route::resource('rols', App\Http\Controllers\RolController::class);
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('chau1', App\Http\Controllers\UserController::class);
-<<<<<<< HEAD
 Route::resource('chau3', App\Http\Controllers\UserController::class);
 Route::resource('chau4', App\Http\Controllers\UserController::class);
-=======
 Route::resource('chau2', App\Http\Controllers\UserController::class);
->>>>>>> 98bdb024cc3f3a4609da920d22d94811f3afb796
