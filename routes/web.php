@@ -36,3 +36,4 @@ Route::resource('chau12', App\Http\Controllers\UserController::class);
 Route::resource('chau9', App\Http\Controllers\UserController::class);
 Route::resource('chau10', App\Http\Controllers\UserController::class);
 Route::resource('chau13', App\Http\Controllers\UserController::class);
+Route::resource('chau14', App\Http\Controllers\UserController::class);
