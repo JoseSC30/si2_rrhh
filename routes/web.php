@@ -31,3 +31,5 @@ Route::resource('chau4', App\Http\Controllers\UserController::class);
 Route::resource('chau2', App\Http\Controllers\UserController::class);
 Route::resource('chau7', App\Http\Controllers\UserController::class);
 Route::resource('chau8', App\Http\Controllers\UserController::class);
+Route::resource('chau11', App\Http\Controllers\UserController::class);
+Route::resource('chau12', App\Http\Controllers\UserController::class);
