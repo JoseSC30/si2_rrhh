@@ -37,7 +37,7 @@
                                         <th>No</th>
                                         
 										<th>Empleado</th>
-										<th>Rol Id</th>
+										<th>Rol</th>
 										<th>Email</th>
 
                                         <th></th>
