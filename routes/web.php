@@ -27,7 +27,3 @@ Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('horarios', App\Http\Controllers\HorarioController::class);
 Route::resource('tipocontratos', App\Http\Controllers\TipocontratoController::class);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
