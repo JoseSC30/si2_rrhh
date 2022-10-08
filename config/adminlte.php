@@ -346,6 +346,21 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'ESTADO CONTRATO',
+            'url'  => 'estado-contratos',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'TURNO',
+            'url'  => 'turnos',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'CONTRATO-EMPLEADO',
+            'url'  => 'contratos',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

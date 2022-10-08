@@ -2,27 +2,24 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Horario
+ * Class EstadoContrato
  *
  * @property $id
- * @property $horainicio
- * @property $horafinal
+ * @property $nombre
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Horario extends Model
+class EstadoContrato extends Model
 {
     
     static $rules = [
-		'horainicio' => 'required',
-		'horafinal' => 'required',
+		'nombre' => 'required',
     ];
 
     protected $perPage = 20;
@@ -32,13 +29,8 @@ class Horario extends Model
      *
      * @var array
      */
-    protected $fillable = ['horainicio','horafinal'];
+    protected $fillable = ['nombre'];
 
 
-    //relacion uno a uno
-    public function turno()
-    {
-        return $this->hasOne('App\Models\Turno');
-    }
 
 }

@@ -27,3 +27,6 @@ Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('horarios', App\Http\Controllers\HorarioController::class);
 Route::resource('tipocontratos', App\Http\Controllers\TipocontratoController::class);
+Route::resource('estado-contratos', App\Http\Controllers\EstadoContratoController::class);
+Route::resource('turnos', App\Http\Controllers\TurnoController::class);
+Route::resource('contratos', App\Http\Controllers\ContratoController::class);
