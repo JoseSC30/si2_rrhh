@@ -5,7 +5,7 @@
             <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('Registrado por') }}
-                {{ Form::text('usuario_id', $contrato->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'Value' => Auth::user()->empleados->nombre, 'readonly']) }}
+                {{ Form::text('usuario_id', $contrato->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'Value' => Auth::user()->empleados->id, 'readonly']) }}
                 {!! $errors->first('usuario_id', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             </div>
