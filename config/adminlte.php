@@ -334,6 +334,13 @@ return [
             'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
+
+        [
+            'text' => 'HORARIO',
+            'url'  => 'horarios',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
         [
             'text' => 'change_password',
             'url'  => 'admin/settings',
