@@ -340,7 +340,11 @@ return [
             'url'  => 'horarios',
             'icon' => 'fas fa-fw fa-user',
         ],
-
+        [
+            'text' => 'TIPO CONTRATOS',
+            'url'  => 'tipocontratos',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         [
             'text' => 'change_password',
             'url'  => 'admin/settings',
