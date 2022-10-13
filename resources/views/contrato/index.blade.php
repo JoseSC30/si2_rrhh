@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Contrato') }}
+                                {{ __('CONTRATOS') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('contratos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear nuevo contrato') }}
+                                  {{ __('Crear Nuevo Contrato') }}
                                 </a>
                               </div>
                         </div>
@@ -36,13 +36,13 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Registrado por</th>
-										<th>Empleado </th>
+										<th>REGISTRADO POR</th>
+										<th>EMPLEADO </th>
 										
-										<th>EstadoContrato</th>
-										<th>Turno</th>
-										<th>Fecha</th>
-										<th>Hora</th>
+										<th>ESTADO CONTRATO</th>
+										<th>TURNO</th>
+										<th>FECHA</th>
+										<th>HORA</th>
 										
 
                                         <th></th>
@@ -64,7 +64,7 @@
 
                                             <td>
                                                 <form action="{{ route('contratos.destroy',$contrato->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('contratos.show',$contrato->id) }}"><i class="fa fa-fw fa-eye"></i> ver</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('contratos.show',$contrato->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('contratos.edit',$contrato->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

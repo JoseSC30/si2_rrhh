@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Tipocontrato') }}
+                                {{ __('TIPO CONTRATO') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('tipocontratos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Definir Nuevo Tipo de Contrato') }}
                                 </a>
                               </div>
                         </div>
@@ -36,9 +36,9 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Duracion</th>
+										<th>NOMBRE</th>
+										<th>DESCRIPCIÓN</th>
+										<th>DURACIÓN</th>
 
                                         <th></th>
                                     </tr>
@@ -54,11 +54,11 @@
 
                                             <td>
                                                 <form action="{{ route('tipocontratos.destroy',$tipocontrato->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipocontratos.show',$tipocontrato->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('tipocontratos.edit',$tipocontrato->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipocontratos.show',$tipocontrato->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tipocontratos.edit',$tipocontrato->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

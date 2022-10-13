@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Turno') }}
+                                {{ __('TURNOS') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('turnos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Nuevo') }}
+                                  {{ __('Crear Nuevo Turno') }}
                                 </a>
                               </div>
                         </div>
@@ -36,9 +36,9 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre</th>
-										<th>horainicio</th>
-                                        <th>horafinal</th>
+										<th>NOMBRE</th>
+										<th>HORA INCIO</th>
+                                        <th>HORA FINAL</th>
 
                                         <th></th>
                                     </tr>

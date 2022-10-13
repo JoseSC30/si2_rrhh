@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Estado Contrato') }}
+                                {{ __('ESTADO CONTRATO') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('estado-contratos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('crear nuevo') }}
+                                  {{ __('Nuevo Estado Contrato') }}
                                 </a>
                               </div>
                         </div>
@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nombre</th>
+										<th>NOMBRE</th>
 
                                         <th></th>
                                     </tr>
