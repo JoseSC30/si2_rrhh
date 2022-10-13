@@ -10,7 +10,7 @@ use App\Http\Controllers\BitacoraController;
 //
 use App\Models\User;
 use App\Models\Empleado;
-use App\Models\TipoContrato;
+use App\Models\Tipocontrato;
 use App\Models\Turno;
 use App\Models\EstadoContrato;
 use Carbon\carbon;
