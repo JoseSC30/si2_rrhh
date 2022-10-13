@@ -25,7 +25,7 @@
             
 
             <div class="">
-                <!-- IMAGEN DE UN TRUFI -->
+                <!-- IMAGEN -->
                 
                 <img src="imagenes/rh.png" alt="Imagen del titulo" width="720" height="280" >
 
