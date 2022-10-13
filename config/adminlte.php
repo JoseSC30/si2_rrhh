@@ -193,7 +193,7 @@ return [
    'classes_content_wrapper' => 'n',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-info elevation-4',
+    'classes_sidebar' => 'sidebar-light-info elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-info navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
@@ -330,6 +330,11 @@ return [
 
         ['header' => 'ADMINISTRADOR'],
         [
+            'text' => 'BITACORA',
+            'url'  => 'bitacoras',
+            'icon' => 'fas fa-fw fa-clone',
+        ],
+        [
             'text' => 'ROLES',
             'url'  => 'rols',
             'icon' => 'fas fa-fw fa-user-secret',
@@ -342,11 +347,6 @@ return [
         [
             'text' => 'USUARIO',
             'url'  => 'users',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'BITACORAS',
-            'url'  => 'bitacoras',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
