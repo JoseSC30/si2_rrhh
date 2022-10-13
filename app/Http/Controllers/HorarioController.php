@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Horario;
 use Illuminate\Http\Request;
+//
+use App\Http\Controllers\BitacoraController;
+//
 
 /**
  * Class HorarioController
@@ -47,6 +50,11 @@ class HorarioController extends Controller
 
         $horario = Horario::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de nuevo HORARIO";
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('horarios.index')
             ->with('success', 'Horario created successfully.');
     }
@@ -73,6 +81,11 @@ class HorarioController extends Controller
     public function edit($id)
     {
         $horario = Horario::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Edición de un HORARIO";
+        app(BitacoraController::class)->registrar($detalle);
+        //
 
         return view('horario.edit', compact('horario'));
     }
@@ -101,7 +114,14 @@ class HorarioController extends Controller
      */
     public function destroy($id)
     {
-        $horario = Horario::find($id)->delete();
+        $horario = Horario::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se eliminó un HORARIO";
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $horario->delete();
 
         return redirect()->route('horarios.index')
             ->with('success', 'Horario deleted successfully');

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Contrato;
 use Illuminate\Http\Request;
-
+//
+use App\Http\Controllers\BitacoraController;
+//
 //
 use App\Models\User;
 use App\Models\Empleado;
@@ -67,6 +69,11 @@ class ContratoController extends Controller
 
         $contrato = Contrato::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de CONTRATO de: ".$contrato->empleado->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('contratos.index')
             ->with('success', 'Contrato created successfully.');
     }
@@ -104,6 +111,11 @@ class ContratoController extends Controller
         $tur = Turno::pluck('nombre','id');
         $econ = EstadoContrato::pluck('nombre','id');
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se EDITÓ los datos del CONTRATO de: ".$contrato->empleado->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return view('contrato.edit', compact('contrato','usu','empl','tcon','tur','econ','hora','fecha'));
     }
 
@@ -131,7 +143,14 @@ class ContratoController extends Controller
      */
     public function destroy($id)
     {
-        $contrato = Contrato::find($id)->delete();
+        $contrato = Contrato::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se ELIMINÓ el CONTRATO de: ".$contrato->empleado->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $contrato->delete();
 
         return redirect()->route('contratos.index')
             ->with('success', 'Contrato deleted successfully');

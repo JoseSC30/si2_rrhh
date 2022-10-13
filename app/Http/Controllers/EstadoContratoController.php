@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\EstadoContrato;
 use Illuminate\Http\Request;
+//
+use App\Http\Controllers\BitacoraController;
+//
 
 /**
  * Class EstadoContratoController
@@ -47,6 +50,11 @@ class EstadoContratoController extends Controller
 
         $estadoContrato = EstadoContrato::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Nueva configuración de un ESTADO CONTRATO: ".$estadoContrato->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('estado-contratos.index')
             ->with('success', 'EstadoContrato created successfully.');
     }
@@ -73,6 +81,11 @@ class EstadoContratoController extends Controller
     public function edit($id)
     {
         $estadoContrato = EstadoContrato::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Edición de un ESTADO CONTRATO: ".$estadoContrato->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
 
         return view('estado-contrato.edit', compact('estadoContrato'));
     }
@@ -101,7 +114,14 @@ class EstadoContratoController extends Controller
      */
     public function destroy($id)
     {
-        $estadoContrato = EstadoContrato::find($id)->delete();
+        $estadoContrato = EstadoContrato::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Eliminación de un ESTADO CONTRATO: ".$estadoContrato->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $estadoContrato->delete();
 
         return redirect()->route('estado-contratos.index')
             ->with('success', 'EstadoContrato deleted successfully');
