@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Estado Contrato</span>
+                        <span class="card-title">Editar Estado Contrato</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('estado-contratos.update', $estadoContrato->id) }}"  role="form" enctype="multipart/form-data">

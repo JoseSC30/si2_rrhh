@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'rrhh',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>RRHH</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/Logorrhh1.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -109,11 +109,11 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/Logorrhh3.jpg',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 120,
+            'height' => 120,
         ],
     ],
 
@@ -150,8 +150,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -167,12 +167,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
-    'classes_auth_header' => '',
+    'classes_auth_card' => '',
+    'classes_auth_header' => 'bg-gradient-info',
     'classes_auth_body' => '',
-    'classes_auth_footer' => '',
-    'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_footer' => 'text-center',
+    'classes_auth_icon' => 'fa-lg text-info',
+    'classes_auth_btn' => 'btn-flat btn-info',
 
     /*
     |--------------------------------------------------------------------------
@@ -189,12 +189,13 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
+   // 'classes_content_wrapper' => 'navbar-info text-dark',
+   'classes_content_wrapper' => 'n',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-info elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-info navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -293,7 +294,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Busqueda',
             'topnav_right' => true,
         ],
         [
@@ -304,13 +305,14 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Busqueda',
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        /*
         [
             'text'        => 'pages',
             'url'         => 'admin/pages',
@@ -318,53 +320,72 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        */
+        [
+            'text' => 'HOME',
+            'url'  => 'home',
+            'icon' => 'fas fa-fw fa-home',
+        ],
+
+
+        ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'ROLES',
             'url'  => 'rols',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-user-secret',
         ],
         [
-            'text' => 'EMPLEADO',
+            'text' => 'EMPLEADOS',
             'url'  => 'empleados',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'USUARIOS',
+            'text' => 'USUARIO',
             'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
 
         [
-            'text' => 'HORARIO',
-            'url'  => 'horarios',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'TIPO CONTRATOS',
-            'url'  => 'tipocontratos',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'ESTADO CONTRATO',
-            'url'  => 'estado-contratos',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'TURNO',
-            'url'  => 'turnos',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
             'text' => 'CONTRATO-EMPLEADO',
             'url'  => 'contratos',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-file',
         ],
+
         [
-            'text' => 'change_password',
+            'text'    => 'Ajustes de contrato',
+            'icon' => 'fas fa-fw fa-group',
+            'submenu' => [
+                [
+                    'text' => 'Horarios',
+                    'url'  => 'horarios',
+                    'icon' => 'fas fa-fw fa-clock',
+                ],
+                [
+                    'text' => 'Tipo de contrato',
+                    'url'  => 'tipocontratos',
+                    'icon' => 'fas fa-fw fa-suitcase',
+                ],
+                [
+                    'text' => 'Estado de contrato',
+                    'url'  => 'estado-contratos',
+                    'icon' => 'fas fa-fw fa-toggle-on',
+                ],
+                [
+                    'text' => 'Turno',
+                    'url'  => 'turnos',
+                    'icon' => 'fas fa-fw fa-hourglass',
+                ],
+            ],
+        ], 
+
+        
+        [
+            'text' => 'cambiar contraseña',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -419,7 +440,11 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+
+        */
     ],
+
+    
 
     /*
     |--------------------------------------------------------------------------

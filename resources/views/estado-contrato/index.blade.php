@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('estado-contratos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -50,11 +50,11 @@
 
                                             <td>
                                                 <form action="{{ route('estado-contratos.destroy',$estadoContrato->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('estado-contratos.show',$estadoContrato->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('estado-contratos.edit',$estadoContrato->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('estado-contratos.show',$estadoContrato->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('estado-contratos.edit',$estadoContrato->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>
