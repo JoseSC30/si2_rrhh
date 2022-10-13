@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\BitacoraController;
 /**
  * Class EmpleadoController
  * @package App\Http\Controllers
@@ -47,6 +48,11 @@ class EmpleadoController extends Controller
 
         $empleado = Empleado::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de EMPLEADO: ".$empleado->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('empleados.index')
             ->with('success', 'Empleado created successfully.');
     }
@@ -73,6 +79,11 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se EDITÓ los datos de EMPLEADO: ".$empleado->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
 
         return view('empleado.edit', compact('empleado'));
     }
@@ -101,7 +112,14 @@ class EmpleadoController extends Controller
      */
     public function destroy($id)
     {
-        $empleado = Empleado::find($id)->delete();
+        $empleado = Empleado::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se ELIMINÓ los datos de EMPLEADO: ".$empleado->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $empleado->delete();
 
         return redirect()->route('empleados.index')
             ->with('success', 'Empleado deleted successfully');

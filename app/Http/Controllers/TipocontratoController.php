@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Tipocontrato;
 use Illuminate\Http\Request;
+//
+use App\Http\Controllers\BitacoraController;
+//
 
 /**
  * Class TipocontratoController
@@ -47,6 +50,11 @@ class TipocontratoController extends Controller
 
         $tipocontrato = Tipocontrato::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de nuevo TIPO CONTRATO: ".$tipocontrato->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('tipocontratos.index')
             ->with('success', 'Tipocontrato created successfully.');
     }
@@ -73,6 +81,11 @@ class TipocontratoController extends Controller
     public function edit($id)
     {
         $tipocontrato = Tipocontrato::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Edición de TIPO CONTRATO: ".$tipocontrato->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
 
         return view('tipocontrato.edit', compact('tipocontrato'));
     }
@@ -101,7 +114,14 @@ class TipocontratoController extends Controller
      */
     public function destroy($id)
     {
-        $tipocontrato = Tipocontrato::find($id)->delete();
+        $tipocontrato = Tipocontrato::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se eliminó TIPO CONTRATO: ".$tipocontrato->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $tipocontrato->delete();
 
         return redirect()->route('tipocontratos.index')
             ->with('success', 'Tipocontrato deleted successfully');

@@ -334,7 +334,11 @@ return [
             'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
-
+        [
+            'text' => 'BITACORAS',
+            'url'  => 'bitacoras',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         [
             'text' => 'HORARIO',
             'url'  => 'horarios',

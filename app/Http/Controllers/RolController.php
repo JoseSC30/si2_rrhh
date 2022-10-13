@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Rol;
 use Illuminate\Http\Request;
+//
+use App\Http\Controllers\BitacoraController;
+//
 
 /**
  * Class RolController
@@ -47,6 +50,11 @@ class RolController extends Controller
 
         $rol = Rol::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de ROL: ".$rol->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('rols.index')
             ->with('success', 'Rol created successfully.');
     }
@@ -73,6 +81,11 @@ class RolController extends Controller
     public function edit($id)
     {
         $rol = Rol::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Edición de ROL: ".$rol->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
 
         return view('rol.edit', compact('rol'));
     }
@@ -101,7 +114,14 @@ class RolController extends Controller
      */
     public function destroy($id)
     {
-        $rol = Rol::find($id)->delete();
+        $rol = Rol::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se ELIMINÓ el ROL: ".$rol->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $rol->delete();
 
         return redirect()->route('rols.index')
             ->with('success', 'Rol deleted successfully');

@@ -30,3 +30,4 @@ Route::resource('tipocontratos', App\Http\Controllers\TipocontratoController::cl
 Route::resource('estado-contratos', App\Http\Controllers\EstadoContratoController::class);
 Route::resource('turnos', App\Http\Controllers\TurnoController::class);
 Route::resource('contratos', App\Http\Controllers\ContratoController::class);
+Route::resource('bitacoras', App\Http\Controllers\BitacoraController::class);

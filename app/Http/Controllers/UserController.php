@@ -10,6 +10,9 @@ use App\Models\Empleado;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
+//
+use App\Http\Controllers\BitacoraController;
+//
 
 /**
  * Class UserController
@@ -64,6 +67,11 @@ class UserController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de nuevo USUARIO para el EMPLEADO: ".$user->empleados->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');
     }
@@ -94,6 +102,11 @@ class UserController extends Controller
         $rols = Rol::pluck('nombre','id');
         $empleados = Empleado::pluck('nombre','id');
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se EDITÓ el USUARIO del empleado: ".$user->empleados->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return view('user.edit', compact('user','rols','empleados'));
     }
 
@@ -121,7 +134,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id)->delete();
+        $user = User::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se eliminó el USUARIO del EMPLEADO: ".$user->empleados->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $user->delete();
 
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');

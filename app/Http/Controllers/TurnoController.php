@@ -6,6 +6,9 @@ use App\Models\Turno;
 use Illuminate\Http\Request;
 //
 use App\Models\Horario;
+//
+use App\Http\Controllers\BitacoraController;
+//
 
 /**
  * Class TurnoController
@@ -52,6 +55,11 @@ class TurnoController extends Controller
 
         $turno = Turno::create($request->all());
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de nuevo TURNO: ".$turno->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return redirect()->route('turnos.index')
             ->with('success', 'Turno created successfully.');
     }
@@ -81,6 +89,11 @@ class TurnoController extends Controller
 
         $hor = Horario::pluck('horainicio','id');
 
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se EDITÓ los datos de TURNO: ".$turno->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
         return view('turno.edit', compact('turno','hor'));
     }
 
@@ -108,7 +121,14 @@ class TurnoController extends Controller
      */
     public function destroy($id)
     {
-        $turno = Turno::find($id)->delete();
+        $turno = Turno::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se ELIMINÓ el TURNO: ".$turno->nombre;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $turno->delete();
 
         return redirect()->route('turnos.index')
             ->with('success', 'Turno deleted successfully');
