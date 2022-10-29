@@ -36,8 +36,8 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Recurso Id</th>
-										<th>Puestolaboral Id</th>
+										<th>RECURSO</th>
+										<th>PUESTO LABORAL</th>
 
                                         <th></th>
                                     </tr>

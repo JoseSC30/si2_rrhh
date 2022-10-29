@@ -368,7 +368,9 @@ return [
         [
             'text' => 'RECURSO-ASIGNADO',
             'url'  => 'recursoasignados',
-
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
             'text' => 'CONTACTOS',
             'url'  => 'contactos',
             'icon' => 'fas fa-fw fa-address-book',
