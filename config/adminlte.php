@@ -356,6 +356,24 @@ return [
         ],
 
         [
+            'text' => 'USUARIO MOVIL',
+            'url'  => 'usuariomovils',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
+            'text' => 'ASISTENCIAS',
+            'url'  => 'asistencias',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
+            'text' => 'PERMISOS LABORALES',
+            'url'  => 'permisolaborals',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
             'text'    => 'Ajustes de contrato',
             'icon' => 'fas fa-fw fa-group',
             'submenu' => [
@@ -378,6 +396,8 @@ return [
                     'text' => 'Turno',
                     'url'  => 'turnos',
                     'icon' => 'fas fa-fw fa-hourglass',
+
+                    
                 ],
             ],
         ], 
