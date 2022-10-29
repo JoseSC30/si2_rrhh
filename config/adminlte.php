@@ -354,6 +354,21 @@ return [
             'url'  => 'contratos',
             'icon' => 'fas fa-fw fa-file',
         ],
+        [
+            'text' => 'RECURSOS',
+            'url'  => 'recursos',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'PUESTO-LABORAL',
+            'url'  => 'puestolaborals',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'RECURSO-ASIGNADO',
+            'url'  => 'recursoasignados',
+            'icon' => 'fas fa-fw fa-file',
+        ],
 
         [
             'text'    => 'Ajustes de contrato',
@@ -379,6 +394,7 @@ return [
                     'url'  => 'turnos',
                     'icon' => 'fas fa-fw fa-hourglass',
                 ],
+                
             ],
         ], 
 
