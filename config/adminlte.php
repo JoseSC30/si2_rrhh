@@ -354,6 +354,16 @@ return [
             'url'  => 'contratos',
             'icon' => 'fas fa-fw fa-file',
         ],
+        [
+            'text' => 'CONTACTOS',
+            'url'  => 'contactos',
+            'icon' => 'fas fa-fw fa-address-book',
+        ],
+        [
+            'text' => 'PLANILLA-SUELDOS',
+            'url'  => 'planillasueldos',
+            'icon' => 'fas fa-fw fa-file-alt',
+        ],
 
         [
             'text'    => 'Ajustes de contrato',

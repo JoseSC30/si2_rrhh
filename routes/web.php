@@ -31,3 +31,5 @@ Route::resource('estado-contratos', App\Http\Controllers\EstadoContratoControlle
 Route::resource('turnos', App\Http\Controllers\TurnoController::class);
 Route::resource('contratos', App\Http\Controllers\ContratoController::class);
 Route::resource('bitacoras', App\Http\Controllers\BitacoraController::class);
+Route::resource('contactos', App\Http\Controllers\ContactoController::class);
+Route::resource('planillasueldos', App\Http\Controllers\PlanillasueldoController::class);
