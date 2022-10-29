@@ -13,11 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('horarios', function (Blueprint $table) {
+        Schema::create('planillasueldos', function (Blueprint $table) {
             $table->id();
-            $table->time('horainicio');
-            $table->time('horafinal');
+            $table->bigInteger('empleado_id')->unsigned();
+            $table->float('monto');
+            $table->time('hora');
+            $table->date('fecha');
             $table->timestamps();
+
+            $table->foreign('empleado_id')
+            ->references('id')->on('empleados')
+            ->onDelete('cascade');
         });
     }
 
@@ -28,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horarios');
+        Schema::dropIfExists('planillasueldos');
     }
 };

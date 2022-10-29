@@ -355,6 +355,7 @@ return [
             'icon' => 'fas fa-fw fa-file',
         ],
         [
+
             'text' => 'RECURSOS',
             'url'  => 'recursos',
             'icon' => 'fas fa-fw fa-file',
@@ -367,6 +368,32 @@ return [
         [
             'text' => 'RECURSO-ASIGNADO',
             'url'  => 'recursoasignados',
+
+            'text' => 'CONTACTOS',
+            'url'  => 'contactos',
+            'icon' => 'fas fa-fw fa-address-book',
+        ],
+        [
+            'text' => 'PLANILLA-SUELDOS',
+            'url'  => 'planillasueldos',
+            'icon' => 'fas fa-fw fa-file-alt',
+        ],
+
+        [
+            'text' => 'USUARIO MOVIL',
+            'url'  => 'usuariomovils',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
+            'text' => 'ASISTENCIAS',
+            'url'  => 'asistencias',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
+            'text' => 'PERMISOS LABORALES',
+            'url'  => 'permisolaborals',
             'icon' => 'fas fa-fw fa-file',
         ],
 
@@ -393,6 +420,8 @@ return [
                     'text' => 'Turno',
                     'url'  => 'turnos',
                     'icon' => 'fas fa-fw fa-hourglass',
+
+                    
                 ],
                 
             ],

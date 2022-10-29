@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('horarios', function (Blueprint $table) {
+        Schema::create('usuariomovils', function (Blueprint $table) {
             $table->id();
-            $table->time('horainicio');
-            $table->time('horafinal');
+            $table->string('usuario');
+            $table->string('contrasena');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horarios');
+        Schema::dropIfExists('usuariomovils');
     }
 };

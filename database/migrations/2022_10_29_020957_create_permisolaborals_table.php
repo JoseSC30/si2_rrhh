@@ -13,11 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('horarios', function (Blueprint $table) {
+        Schema::create('permisolaborals', function (Blueprint $table) {
             $table->id();
-            $table->time('horainicio');
-            $table->time('horafinal');
+            $table->string('detalle');
+            $table->time('hora');
+            $table->date('fecha');
             $table->timestamps();
+
+            $table->bigInteger('usuariomovil_id')->unsigned();
+
+            $table->foreign('usuariomovil_id')
+            ->references('id')->on('usuariomovils')
+            ->onDelete("cascade");
+
         });
     }
 
@@ -28,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horarios');
+        Schema::dropIfExists('permisolaborals');
     }
 };
