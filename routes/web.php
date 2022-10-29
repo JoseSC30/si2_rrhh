@@ -33,3 +33,6 @@ Route::resource('contratos', App\Http\Controllers\ContratoController::class);
 Route::resource('bitacoras', App\Http\Controllers\BitacoraController::class);
 Route::resource('contactos', App\Http\Controllers\ContactoController::class);
 Route::resource('planillasueldos', App\Http\Controllers\PlanillasueldoController::class);
+Route::resource('usuariomovils', App\Http\Controllers\UsuariomovilController::class);
+Route::resource('asistencias', App\Http\Controllers\AsistenciaController::class);
+Route::resource('permisolaborals', App\Http\Controllers\PermisolaboralController::class);
