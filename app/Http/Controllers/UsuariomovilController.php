@@ -50,7 +50,19 @@ class UsuariomovilController extends Controller
         return redirect()->route('usuariomovils.index')
             ->with('success', 'Usuariomovil created successfully.');
     }
+////////////////////// FUNCIONES DE EL API //////////////////////////
+    public function enviarUsuariomovils()
+    {
+        $cuentas = Usuariomovil::all('id','usuario','contrasena');
 
+        return response()->json($cuentas);
+    }
+
+    public function validarCuenta() {
+        
+    }
+
+////////////////////////////////////////////////////////////////
     /**
      * Display the specified resource.
      *

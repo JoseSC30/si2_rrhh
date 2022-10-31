@@ -2,7 +2,7 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('puestolaboral_id') }}
+            {{ Form::label('puestolaboral') }}
             {{ Form::text('puestolaboral_id', $empleado->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Puestolaboral Id']) }}
             {!! $errors->first('puestolaboral_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
