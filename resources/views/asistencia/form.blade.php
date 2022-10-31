@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('usuariomovil_id') }}
-            {{ Form::text('usuariomovil_id', $asistencia->usuariomovil_id, ['class' => 'form-control' . ($errors->has('usuariomovil_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuariomovil Id']) }}
+            {{ Form::select('usuariomovil_id', $usuariomovilss, $asistencia->usuariomovil_id, ['class' => 'form-control' . ($errors->has('usuariomovil_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuariomovil Id']) }}
             {!! $errors->first('usuariomovil_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

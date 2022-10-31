@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permisolaboral;
+use App\Models\Usuariomovil;
 use Illuminate\Http\Request;
+
 
 /**
  * Class PermisolaboralController
@@ -32,7 +34,8 @@ class PermisolaboralController extends Controller
     public function create()
     {
         $permisolaboral = new Permisolaboral();
-        return view('permisolaboral.create', compact('permisolaboral'));
+        $usuariomovilss = Usuariomovil::pluck('usuario','id');
+        return view('permisolaboral.create', compact('permisolaboral','usuariomovilss'));
     }
 
     /**
@@ -73,8 +76,8 @@ class PermisolaboralController extends Controller
     public function edit($id)
     {
         $permisolaboral = Permisolaboral::find($id);
-
-        return view('permisolaboral.edit', compact('permisolaboral'));
+        $usuariomovilss = Usuariomovil::pluck('usuario','id');
+        return view('permisolaboral.edit', compact('permisolaboral','usuariomovilss'));
     }
 
     /**

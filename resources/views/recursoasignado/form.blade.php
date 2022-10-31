@@ -3,12 +3,12 @@
         
         <div class="form-group">
             {{ Form::label('recurso_id') }}
-            {{ Form::text('recurso_id', $recursoasignado->recurso_id, ['class' => 'form-control' . ($errors->has('recurso_id') ? ' is-invalid' : ''), 'placeholder' => 'Recurso Id']) }}
+            {{ Form::select('recurso_id', $recursoss, $recursoasignado->recurso_id, ['class' => 'form-control' . ($errors->has('recurso_id') ? ' is-invalid' : ''), 'placeholder' => 'Recurso Id']) }}
             {!! $errors->first('recurso_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('puestolaboral_id') }}
-            {{ Form::text('puestolaboral_id', $recursoasignado->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Puestolaboral Id']) }}
+            {{ Form::select('puestolaboral_id', $puestolaboralss, $recursoasignado->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Puestolaboral Id']) }}
             {!! $errors->first('puestolaboral_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

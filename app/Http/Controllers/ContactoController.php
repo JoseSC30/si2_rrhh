@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contacto;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class ContactoController extends Controller
     public function create()
     {
         $contacto = new Contacto();
-        return view('contacto.create', compact('contacto'));
+        $empleadoss = Empleado::pluck('nombre','id');
+        return view('contacto.create', compact('contacto','empleadoss'));
     }
 
     /**
@@ -73,8 +75,8 @@ class ContactoController extends Controller
     public function edit($id)
     {
         $contacto = Contacto::find($id);
-
-        return view('contacto.edit', compact('contacto'));
+        $empleadoss = Empleado::pluck('nombre','id');
+        return view('contacto.edit', compact('contacto','empleadoss'));
     }
 
     /**

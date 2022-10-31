@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Puestolaboral;
+use App\Models\Usuariomovil;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\BitacoraController;
+use App\Http\Controllers\BitacoraControllr;
 /**
  * Class EmpleadoController
  * @package App\Http\Controllers
@@ -33,7 +35,9 @@ class EmpleadoController extends Controller
     public function create()
     {
         $empleado = new Empleado();
-        return view('empleado.create', compact('empleado'));
+        $puestolaboralss = Puestolaboral::pluck('nombre','id');
+        $usuariomovilss = Usuariomovil::pluck('usuario','id');
+        return view('empleado.create', compact('empleado','puestolaboralss','usuariomovilss'));
     }
 
     /**
@@ -79,13 +83,15 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::find($id);
+        $puestolaboralss = Puestolaboral::pluck('nombre','id');
+        $usuariomovilss = Usuariomovil::pluck('usuario','id');
 
         //CODIGO PARA LA BITACORA
         $detalle = "Se EDITÓ los datos de EMPLEADO: ".$empleado->nombre;
         app(BitacoraController::class)->registrar($detalle);
         //
 
-        return view('empleado.edit', compact('empleado'));
+        return view('empleado.edit', compact('empleado','puestolaboralss','usuariomovilss'));
     }
 
     /**

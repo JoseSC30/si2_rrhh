@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
 use Illuminate\Http\Request;
+use App\Models\Usuariomovil;
 
 /**
  * Class AsistenciaController
@@ -32,7 +33,8 @@ class AsistenciaController extends Controller
     public function create()
     {
         $asistencia = new Asistencia();
-        return view('asistencia.create', compact('asistencia'));
+        $usuariomovilss = Usuariomovil::pluck('usuario','id');
+        return view('asistencia.create', compact('asistencia','usuariomovilss'));
     }
 
     /**
@@ -73,8 +75,8 @@ class AsistenciaController extends Controller
     public function edit($id)
     {
         $asistencia = Asistencia::find($id);
-
-        return view('asistencia.edit', compact('asistencia'));
+        $usuariomovilss = Usuariomovil::pluck('usuario','id');
+        return view('asistencia.edit', compact('asistencia','usuariomovilss'));
     }
 
     /**

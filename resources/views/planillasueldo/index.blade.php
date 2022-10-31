@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Planilla-Sueldo') }}
+                                {{ __('PLANILLA DE SUELDOS') }}
                             </span>
 
                              <div class="float-right">
@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>EMPLEADO Id</th>
+										<th>EMPLEADO</th>
 										<th>MONTO</th>
 										<th>HORA</th>
 										<th>FECHA</th>
@@ -49,18 +49,18 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $planillasueldo->empleado_id }}</td>
+											<td>{{ $planillasueldo->empleado->nombre }}</td>
 											<td>{{ $planillasueldo->monto }}</td>
 											<td>{{ $planillasueldo->hora }}</td>
 											<td>{{ $planillasueldo->fecha }}</td>
 
                                             <td>
                                                 <form action="{{ route('planillasueldos.destroy',$planillasueldo->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('planillasueldos.show',$planillasueldo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('planillasueldos.edit',$planillasueldo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('planillasueldos.show',$planillasueldo->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('planillasueldos.edit',$planillasueldo->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

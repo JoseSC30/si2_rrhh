@@ -34,7 +34,9 @@ class RecursoasignadoController extends Controller
     public function create()
     {
         $recursoasignado = new Recursoasignado();
-        return view('recursoasignado.create', compact('recursoasignado'));
+        $recursoss = Recurso::pluck('nombre','id');
+        $puestolaboralss = Puestolaboral::pluck('nombre','id');
+        return view('recursoasignado.create', compact('recursoasignado','recursoss','puestolaboralss'));
     }
 
     /**
@@ -75,8 +77,9 @@ class RecursoasignadoController extends Controller
     public function edit($id)
     {
         $recursoasignado = Recursoasignado::find($id);
-       
-        return view('recursoasignado.edit', compact('recursoasignado'));
+        $recursoss = Recurso::pluck('nombre','id');
+        $puestolaboralss = Puestolaboral::pluck('nombre','id');
+        return view('recursoasignado.edit', compact('recursoasignado','recursoss','puestolaboralss'));
     }
 
     /**
