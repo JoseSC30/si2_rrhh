@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+//Rutas PDF
+Route::get('empleados/pdf', [App\Http\Controllers\EmpleadoController::class, 'pdf'])->name('empleados.pdf');
+Route::get('contratos/pdf', [App\Http\Controllers\ContratoController::class, 'pdf'])->name('contratos.pdf');
+Route::get('contratos/pdf', [App\Http\Controllers\ContratoController::class, 'pdf'])->name('contratos.pdf');
+
 //Rutas
 Route::resource('rols', App\Http\Controllers\RolController::class);
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class);

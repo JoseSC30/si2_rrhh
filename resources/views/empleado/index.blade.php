@@ -16,11 +16,16 @@
                                 {{ __('EMPLEADOS') }}
                             </span>
 
-                             <div class="float-right">
+                            <div class="float-right">
+                                <a href="{{ route('empleados.pdf') }}" class="btn btn-primary btn-sm "  data-placement="left">
+                                  {{ __('Generar reporte') }}
+                                </a>
+&nbsp;
+
                                 <a href="{{ route('empleados.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Registar Nuevo Empleado') }}
                                 </a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -81,3 +86,5 @@
         </div>
     </div>
 @endsection
+
+

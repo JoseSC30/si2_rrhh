@@ -7,7 +7,9 @@ use App\Models\Puestolaboral;
 use App\Models\Usuariomovil;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\BitacoraControllr;
+use App\Http\Controllers\BitacoraController;
+use PDF;
+
 /**
  * Class EmpleadoController
  * @package App\Http\Controllers
@@ -25,6 +27,30 @@ class EmpleadoController extends Controller
 
         return view('empleado.index', compact('empleados'))
             ->with('i', (request()->input('page', 1) - 1) * $empleados->perPage());
+    }
+
+    public function pdf(Request $request)
+    {
+       // $TiempoActual = Carbon::now();
+       // $hora = $TiempoActual->toTimeString();
+       // $fecha = $TiempoActual->format('d-m-Y');
+             
+//        $pdf = PDF::loadView('chofere.pdf',['choferes'=>$choferes],compact('hora','fecha','choferes'));
+//        return $pdf->download('_choferes.pdf');
+
+        $empleados = Empleado::paginate();
+   //     return view('empleado.pdf', compact('empleados'));
+
+
+ $pdf = PDF::loadView('empleado.pdf',['empleados'=>$empleados]);  //--------------------
+        //$pdf->loadHTML('<h1> test </h1>');
+return $pdf->stream();                                            //----------------------
+
+
+    
+        //return $pdf->download('_empleados.pdf');
+
+        //return view('chofere.pdf', compact('choferes'));   
     }
 
     /**
