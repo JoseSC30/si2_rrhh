@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Empleado;
 
+//
+use PDF;
+
 /**
  * Class PlanillasueldoController
  * @package App\Http\Controllers
@@ -24,6 +27,13 @@ class PlanillasueldoController extends Controller
 
         return view('planillasueldo.index', compact('planillasueldos'))
             ->with('i', (request()->input('page', 1) - 1) * $planillasueldos->perPage());
+    }
+
+    public function pdf(Request $request)
+    {
+        $planillasueldos = Planillasueldo::paginate();
+        $pdf = PDF::loadView('planillasueldo.pdf',['planillasueldos'=>$planillasueldos]);  
+        return $pdf->stream();                                            
     }
 
     /**

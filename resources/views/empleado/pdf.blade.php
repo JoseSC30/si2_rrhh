@@ -21,6 +21,7 @@
                                         
 										<th>PUESTO LABORAL</th>
 										<th>USUARIO MOVIL</th>
+                                        
 										<th>NOMBRE</th>
 										<th>CI</th>
 										<th>FECHA NACIMIENTO</th>

@@ -14,6 +14,7 @@ use App\Models\Tipocontrato;
 use App\Models\Turno;
 use App\Models\EstadoContrato;
 use Carbon\carbon;
+use PDF;
 
 
 /**
@@ -33,6 +34,13 @@ class ContratoController extends Controller
 
         return view('contrato.index', compact('contratos'))
             ->with('i', (request()->input('page', 1) - 1) * $contratos->perPage());
+    }
+
+    public function pdf(Request $request)
+    {
+        $contratos = Contrato::paginate();
+        $pdf = PDF::loadView('contrato.pdf',['contratos'=>$contratos]);  
+        return $pdf->stream();                                            
     }
 
     /**
