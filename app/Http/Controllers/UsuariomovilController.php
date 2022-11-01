@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuariomovil;
+use App\Models\Empleado;
 
 use Illuminate\Http\Request;
 
@@ -61,6 +62,25 @@ class UsuariomovilController extends Controller
 
     public function validarCuenta() {
         
+    }
+    public function buscarEmpleado(Request $request)
+    {
+        $e_id = $request->input('id');
+
+        $empleados = Empleado::all();
+        foreach ($empleados as $key ) {
+            if ($key->usuariomovil_id == $e_id) {
+                return response()->json([
+                    'id' => $key->id,
+                    'nombre' => $key->nombre,
+                    'ci' => $key->ci,
+                    'fnacimiento' => $key->fnacimiento,
+                    'sexo' => $key->sexo,
+                    'direccion' => $key->direccion,
+                    'puestoLLaboral' => $key->puestolaboral->nombre,
+                ]);
+            }
+        }
     }
 
 ////////////////////////////////////////////////////////////////

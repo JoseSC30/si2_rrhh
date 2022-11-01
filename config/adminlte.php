@@ -354,6 +354,37 @@ return [
             'url'  => 'contratos',
             'icon' => 'fas fa-fw fa-file',
         ],
+
+        [
+            'text'    => 'Ajustes de contrato',
+            'icon' => 'fas fa-fw fa-group',
+            'submenu' => [
+                [
+                    'text' => 'Horarios',
+                    'url'  => 'horarios',
+                    'icon' => 'fas fa-fw fa-clock',
+                ],
+                [
+                    'text' => 'Tipo de contrato',
+                    'url'  => 'tipocontratos',
+                    'icon' => 'fas fa-fw fa-suitcase',
+                ],
+                [
+                    'text' => 'Estado de contrato',
+                    'url'  => 'estado-contratos',
+                    'icon' => 'fas fa-fw fa-toggle-on',
+                ],
+                [
+                    'text' => 'Turno',
+                    'url'  => 'turnos',
+                    'icon' => 'fas fa-fw fa-hourglass',
+
+                    
+                ],
+                
+            ],
+        ], 
+
         [
 
             'text' => 'RECURSOS',
@@ -399,37 +430,6 @@ return [
             'icon' => 'fas fa-fw fa-file',
         ],
 
-        [
-            'text'    => 'Ajustes de contrato',
-            'icon' => 'fas fa-fw fa-group',
-            'submenu' => [
-                [
-                    'text' => 'Horarios',
-                    'url'  => 'horarios',
-                    'icon' => 'fas fa-fw fa-clock',
-                ],
-                [
-                    'text' => 'Tipo de contrato',
-                    'url'  => 'tipocontratos',
-                    'icon' => 'fas fa-fw fa-suitcase',
-                ],
-                [
-                    'text' => 'Estado de contrato',
-                    'url'  => 'estado-contratos',
-                    'icon' => 'fas fa-fw fa-toggle-on',
-                ],
-                [
-                    'text' => 'Turno',
-                    'url'  => 'turnos',
-                    'icon' => 'fas fa-fw fa-hourglass',
-
-                    
-                ],
-                
-            ],
-        ], 
-
-        
         [
             'text' => 'cambiar contraseña',
             'url'  => 'admin/settings',
