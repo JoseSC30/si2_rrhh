@@ -53,5 +53,14 @@ class Empleado extends Model
         return $this->hasMany('App\Models\User', 'empleado_id', 'id');
     }
     
+    public function puestolaboral()
+    {
+        return $this->hasOne('App\Models\Puestolaboral', 'id', 'puestolaboral_id');
+    }
+
+    public function usuariomovil()
+    {
+        return $this->hasOne('App\Models\Usuariomovil', 'id', 'usuariomovil_id');
+    }
 
 }

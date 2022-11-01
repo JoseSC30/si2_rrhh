@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Permisolaboral') }}
+                                {{ __('REGISTRO DE LOS PERMISOS') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('permisolaborals.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Nuevo Permiso') }}
                                 </a>
                               </div>
                         </div>
@@ -36,10 +36,10 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Detalle</th>
-										<th>Hora</th>
-										<th>Fecha</th>
-										<th>Usuariomovil Id</th>
+										<th>DETALLE</th>
+										<th>HORA</th>
+										<th>FECHA</th>
+										<th>USUARIO MOVIL</th>
 
                                         <th></th>
                                     </tr>
@@ -52,15 +52,15 @@
 											<td>{{ $permisolaboral->detalle }}</td>
 											<td>{{ $permisolaboral->hora }}</td>
 											<td>{{ $permisolaboral->fecha }}</td>
-											<td>{{ $permisolaboral->usuariomovil_id }}</td>
+											<td>{{ $permisolaboral->usuariomovil->usuario }}</td>
 
                                             <td>
                                                 <form action="{{ route('permisolaborals.destroy',$permisolaboral->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('permisolaborals.show',$permisolaboral->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('permisolaborals.edit',$permisolaboral->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('permisolaborals.show',$permisolaboral->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('permisolaborals.edit',$permisolaboral->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

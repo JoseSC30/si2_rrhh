@@ -33,6 +33,9 @@ class Usuariomovil extends Model
      */
     protected $fillable = ['usuario','contrasena'];
 
-
+    public function empleado()
+    {
+        return $this->hasOne('App\Models\Empleado', 'usuariomovil_id', 'id');
+    }
 
 }

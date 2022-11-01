@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Recurso') }}
+                                {{ __('RECURSO PARA LOS EMPLEADOS') }}
                             </span>
 
                              <div class="float-right">
@@ -56,11 +56,11 @@
 
                                             <td>
                                                 <form action="{{ route('recursos.destroy',$recurso->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('recursos.show',$recurso->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('recursos.edit',$recurso->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('recursos.show',$recurso->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('recursos.edit',$recurso->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

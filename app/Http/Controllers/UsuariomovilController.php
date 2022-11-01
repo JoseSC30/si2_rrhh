@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuariomovil;
+
 use Illuminate\Http\Request;
 
 /**
@@ -85,7 +86,6 @@ class UsuariomovilController extends Controller
     public function edit($id)
     {
         $usuariomovil = Usuariomovil::find($id);
-
         return view('usuariomovil.edit', compact('usuariomovil'));
     }
 

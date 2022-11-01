@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Asistencia') }}
+                                {{ __('REGISTRO DE ASISTENCIAS') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('asistencias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Marcar Hora') }}
                                 </a>
                               </div>
                         </div>
@@ -36,10 +36,10 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Hora Llegada</th>
-										<th>Hora Salida</th>
-										<th>Fecha</th>
-										<th>Usuariomovil Id</th>
+                                        <th>USUARIO MOVIL</th>
+                                        <th>FECHA</th>
+										<th>HORA LLEGADA</th>
+										<th>HORA SALIDA</th>										
 
                                         <th></th>
                                     </tr>
@@ -48,19 +48,19 @@
                                     @foreach ($asistencias as $asistencia)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
+                                            <td>{{ $asistencia->usuariomovil->usuario }}</td>
+                                            <td>{{ $asistencia->fecha }}</td>
 											<td>{{ $asistencia->hora_llegada }}</td>
 											<td>{{ $asistencia->hora_salida }}</td>
-											<td>{{ $asistencia->fecha }}</td>
-											<td>{{ $asistencia->usuariomovil_id }}</td>
 
                                             <td>
                                                 <form action="{{ route('asistencias.destroy',$asistencia->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('asistencias.show',$asistencia->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('asistencias.edit',$asistencia->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('asistencias.show',$asistencia->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('asistencias.edit',$asistencia->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

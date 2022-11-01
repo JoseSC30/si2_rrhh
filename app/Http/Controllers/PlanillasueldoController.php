@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Planillasueldo;
 use Illuminate\Http\Request;
 
+use App\Models\Empleado;
+
 /**
  * Class PlanillasueldoController
  * @package App\Http\Controllers
@@ -32,7 +34,8 @@ class PlanillasueldoController extends Controller
     public function create()
     {
         $planillasueldo = new Planillasueldo();
-        return view('planillasueldo.create', compact('planillasueldo'));
+        $empleadoss = Empleado::pluck('nombre','id');
+        return view('planillasueldo.create', compact('planillasueldo','empleadoss'));
     }
 
     /**
@@ -73,8 +76,9 @@ class PlanillasueldoController extends Controller
     public function edit($id)
     {
         $planillasueldo = Planillasueldo::find($id);
+        $empleadoss = Empleado::pluck('nombre','id');
 
-        return view('planillasueldo.edit', compact('planillasueldo'));
+        return view('planillasueldo.edit', compact('planillasueldo','empleadoss'));
     }
 
     /**

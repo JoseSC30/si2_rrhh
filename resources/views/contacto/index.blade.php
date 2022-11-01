@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Contacto') }}
+                                {{ __('CONTACTOS') }}
                             </span>
 
                              <div class="float-right">
@@ -36,13 +36,10 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>EMPLEADO Id</th>
-										<th>TELEFONO UNO</th>
-										<th>TELEFONO DOS</th>
-										<th>EMAIL UNO</th>
-										<th>EMAIL DOS</th>
-										<th>REDSOCIAL UNO</th>
-										<th>REDSOCIAL DOS</th>
+										<th>EMPLEADO</th>
+										<th>TELEFONO</th>
+										<th>EMAIL</th>
+										<th>REDSOCIAL</th>
 
                                         <th></th>
                                     </tr>
@@ -52,21 +49,17 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $contacto->empleado_id }}</td>
+											<td>{{ $contacto->empleado->nombre }}</td>
 											<td>{{ $contacto->telefono_uno }}</td>
-											<td>{{ $contacto->telefono_dos }}</td>
 											<td>{{ $contacto->email_uno }}</td>
-											<td>{{ $contacto->email_dos }}</td>
 											<td>{{ $contacto->redsocial_uno }}</td>
-											<td>{{ $contacto->redsocial_dos }}</td>
-
                                             <td>
                                                 <form action="{{ route('contactos.destroy',$contacto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('contactos.show',$contacto->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('contactos.edit',$contacto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('contactos.show',$contacto->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('contactos.edit',$contacto->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>
