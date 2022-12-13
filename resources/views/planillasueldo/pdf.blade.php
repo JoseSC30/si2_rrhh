@@ -11,8 +11,13 @@
 
 
 <body>
-    <h2><center>- Recursos Humanos -</center></h2>
-    <h2>Reporte de planillas de sueldos</h2>
+    <h2><center>- Reporte de planillas de sueldos -</center></h2>
+
+    <h4> Recursos Humanos <br> 
+    Fecha:{{$fecha}} <br> 
+    Hora: {{$hora}} </h4>
+    <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
+    <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
 
     <table class="table table-striped table-hover">
                                 <thead class="thead">
@@ -43,5 +48,7 @@
                                     @endforeach
                                 </tbody>
     </table>
+    <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
+
 </body>
 </html>

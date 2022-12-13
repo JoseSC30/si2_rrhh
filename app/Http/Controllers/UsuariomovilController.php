@@ -7,6 +7,10 @@ use App\Models\Empleado;
 
 use Illuminate\Http\Request;
 
+//
+use Illuminate\Support\Facades\Hash;
+//
+
 /**
  * Class UsuariomovilController
  * @package App\Http\Controllers
@@ -47,13 +51,21 @@ class UsuariomovilController extends Controller
     {
         request()->validate(Usuariomovil::$rules);
 
-        $usuariomovil = Usuariomovil::create($request->all());
+      ////////  $usuariomovil = Usuariomovil::create($request->all());      //solo estba esto
+
+       //
+        $usuariomovil = Usuariomovil::create([
+           // 'empleado_id' => $request['empleado_id'],
+            'usuario' => $request['usuario'],
+            'contrasena' => Hash::make($request['contrasena']),
+        ]);
+        //
 
         return redirect()->route('usuariomovils.index')
             ->with('success', 'Usuariomovil created successfully.');
     }
 ////////////////////// FUNCIONES DE EL API //////////////////////////
-    public function enviarUsuariomovils()
+ /*   public function enviarUsuariomovils()
     {
         $cuentas = Usuariomovil::all('id','usuario','contrasena');
 
@@ -82,8 +94,9 @@ class UsuariomovilController extends Controller
             }
         }
     }
-
+*/
 ////////////////////////////////////////////////////////////////
+
     /**
      * Display the specified resource.
      *
@@ -138,4 +151,86 @@ class UsuariomovilController extends Controller
         return redirect()->route('usuariomovils.index')
             ->with('success', 'Usuariomovil deleted successfully');
     }
+
+
+    //------------------------------------------------------------------------------------------------------
+    //adicional funciones para el Api sanctum --------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------
+
+    /* 
+    //cambiar la variable users a usuariomovils y sus atributos correspondientes 
+    public function register(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed'
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return response()->json([
+            "status" => 1,
+            "msg" => "¡Registro de usuario exitoso!",
+        ]);
+    } 
+    */
+
+    public function login(Request $request){
+        $request->validate([
+            'usuario' => 'required|email',
+            'contrasena' => 'required'
+        ]);
+
+        $usuariomovil=usuariomovil::where("usuario","=", $request->usuario)->first();
+        
+        if( isset($usuariomovil->id) ){
+            if(Hash::check($request->contrasena, $usuariomovil->contrasena)){
+                //creamos el token
+                $token = $usuariomovil->createToken("auth_token")->plainTextToken;
+                //si está todo bien
+                return response()->json([
+                    "status" => 1,
+                    "msg" => "¡Usuario logueado exitosamente!",
+                    "access_token" => $token
+                ]);        
+            }else{
+                return response()->json([
+                    "status" => 0,
+                    "msg" => "La password es incorrecta",
+                ], 404);    
+            }
+
+        }else{
+            return response()->json([
+                "status" => 0,
+                "msg" => "Usuario no registrado",
+            ], 404);  
+        }
+    }
+
+    /*
+    public function userProfile(){
+        return response()->json([
+            "status" => 0,
+            "msg" => "Acerca del perfil de usuario",
+            "data" => auth()->usuariomovils()
+        ]);     
+    }
+    */
+
+    public function logout(){
+        auth()->usuariomovils()->tokens()->delete();
+        
+        return response()->json([
+            "status" => 1,
+            "msg" => "Cierre de Sesión",            
+        ]);
+
+    }
+    //-------------------------------------------------------------------------------------------
+
 }

@@ -11,22 +11,28 @@
 
 
 <body>
-    <h2><center>- Recursos Humanos -</center></h2>
-    <h2>Reporte de empleados</h2>
-
+    <h2><center>- Reporte:Lista de empleados RRHH -</center></h2>
+    <h4><br> 
+    Fecha:{{$fecha}} <br> 
+    Hora: {{$hora}} <br>
+    </h4>
+    <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
+    <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
+    
         <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
-                                        
-										<th>PUESTO LABORAL</th>
-										<th>USUARIO MOVIL</th>
                                         
 										<th>NOMBRE</th>
 										<th>CI</th>
 										<th>FECHA NACIMIENTO</th>
 										<th>SEXO</th>
 										<th>DIRECCION</th>
+                                        <th>PUESTO LABORAL</th>
+                                        <!-- 
+										<th>USUARIO MOVIL</th>
+                                        -->
 
                                         <th></th>
                                     </tr>
@@ -38,16 +44,21 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empleado->puestolaboral_id }}</td>
-											<td>{{ $empleado->usuariomovil_id }}</td>
 											<td>{{ $empleado->nombre }}</td>
 											<td>{{ $empleado->ci }}</td>
 											<td>{{ $empleado->fnacimiento }}</td>
 											<td>{{ $empleado->sexo }}</td>
 											<td>{{ $empleado->direccion }}</td>
+                                            <td>{{ $empleado->puestolaboral->nombre}}</td>
+                                            <!-- 
+											<td>{{ $empleado->usuariomovil->usuario}}</td>
+                                            -->
                                         </tr>
                                     @endforeach
                                 </tbody>
         </table>
+
+    <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
+    
 </body>
 </html>
