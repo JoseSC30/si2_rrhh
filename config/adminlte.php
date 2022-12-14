@@ -356,6 +356,12 @@ return [
         ],
 
         [
+            'text' => 'COMUNICADO',
+            'url'  => 'comunicados',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
             'text'    => 'Ajustes de contrato',
             'icon' => 'fas fa-fw fa-group',
             'submenu' => [
