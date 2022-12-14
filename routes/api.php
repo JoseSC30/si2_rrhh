@@ -18,6 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/get_usuariomovils', [App\Http\Controllers\UsuariomovilController::class, 'enviarUsuariomovils']);
-Route::get('/get_empleados', [App\Http\Controllers\UsuariomovilController::class, 'enviarEmpleados']);
-Route::post('/post_empleados', [App\Http\Controllers\UsuariomovilController::class, 'buscarEmpleado']);
+Route::get('/get_usuariomovils', [App\Http\Controllers\UsuariomovilController::class, 'enviarUsuariomovils']);//Obtiene todos los usuariomovils.
+Route::get('/get_empleados', [App\Http\Controllers\UsuariomovilController::class, 'enviarEmpleados']);//Obtiene todos los empleados.
+
+
+Route::post('/post_empleados', [App\Http\Controllers\UsuariomovilController::class, 'buscarEmpleado']);//Obtiene un empleado en especifico.

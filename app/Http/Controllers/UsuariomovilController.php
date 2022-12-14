@@ -60,7 +60,11 @@ class UsuariomovilController extends Controller
         return response()->json($cuentas);
     }
 
-    public function validarCuenta() {
+    public function enviarEmpleados() 
+    {
+        $empleados = Empleado::all('id','nombre','ci','fnacimiento','sexo','direccion', 'puestolaboral_id','usuariomovil_id');
+
+        return response()->json($empleados);
         
     }
     public function buscarEmpleado(Request $request)
