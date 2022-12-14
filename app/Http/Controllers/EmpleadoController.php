@@ -8,6 +8,8 @@ use App\Models\Usuariomovil;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\BitacoraController;
+//
+use Carbon\carbon;
 use PDF;
 
 /**
@@ -31,26 +33,14 @@ class EmpleadoController extends Controller
 
     public function pdf(Request $request)
     {
-       // $TiempoActual = Carbon::now();
-       // $hora = $TiempoActual->toTimeString();
-       // $fecha = $TiempoActual->format('d-m-Y');
-             
-//        $pdf = PDF::loadView('chofere.pdf',['choferes'=>$choferes],compact('hora','fecha','choferes'));
-//        return $pdf->download('_choferes.pdf');
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->format('d-m-Y');
 
         $empleados = Empleado::paginate();
-   //     return view('empleado.pdf', compact('empleados'));
+        $pdf = PDF::loadView('empleado.pdf',['empleados'=>$empleados],compact('hora','fecha')); 
+        return $pdf->stream();                                            
 
-
- $pdf = PDF::loadView('empleado.pdf',['empleados'=>$empleados]);  //--------------------
-        //$pdf->loadHTML('<h1> test </h1>');
-return $pdf->stream();                                            //----------------------
-
-
-    
-        //return $pdf->download('_empleados.pdf');
-
-        //return view('chofere.pdf', compact('choferes'));   
     }
 
     /**

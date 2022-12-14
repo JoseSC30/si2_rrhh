@@ -20,13 +20,11 @@
                                 <a href="{{ route('contratos.pdf') }}" class="btn btn-primary btn-sm "  data-placement="left">
                                   {{ __('Generar reporte') }}
                                 </a>
-&nbsp;
-
-                             
+&nbsp;                            
                                 <a href="{{ route('contratos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nuevo Contrato') }}
                                 </a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))

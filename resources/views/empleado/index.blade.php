@@ -21,7 +21,6 @@
                                   {{ __('Generar reporte') }}
                                 </a>
 &nbsp;
-
                                 <a href="{{ route('empleados.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Registar Nuevo Empleado') }}
                                 </a>

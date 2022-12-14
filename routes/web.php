@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Rutas PDF
 Route::get('empleados/pdf', [App\Http\Controllers\EmpleadoController::class, 'pdf'])->name('empleados.pdf');
 Route::get('contratos/pdf', [App\Http\Controllers\ContratoController::class, 'pdf'])->name('contratos.pdf');
-Route::get('contratos/pdf', [App\Http\Controllers\ContratoController::class, 'pdf'])->name('contratos.pdf');
+Route::get('planillasueldos/pdf', [App\Http\Controllers\PlanillasueldoController::class, 'pdf'])->name('planillasueldos.pdf');
 
 //Rutas
 Route::resource('rols', App\Http\Controllers\RolController::class);

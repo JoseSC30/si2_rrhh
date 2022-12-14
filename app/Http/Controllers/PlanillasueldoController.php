@@ -6,6 +6,10 @@ use App\Models\Planillasueldo;
 use Illuminate\Http\Request;
 
 use App\Models\Empleado;
+//
+use Carbon\carbon;
+use PDF;
+
 
 /**
  * Class PlanillasueldoController
@@ -24,6 +28,17 @@ class PlanillasueldoController extends Controller
 
         return view('planillasueldo.index', compact('planillasueldos'))
             ->with('i', (request()->input('page', 1) - 1) * $planillasueldos->perPage());
+    }
+
+    public function pdf(Request $request)
+    {
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->format('d-m-Y');
+
+        $planillasueldos = Planillasueldo::paginate();
+        $pdf = PDF::loadView('planillasueldo.pdf',['planillasueldos'=>$planillasueldos],compact('hora','fecha'));  
+        return $pdf->stream();                                            
     }
 
     /**

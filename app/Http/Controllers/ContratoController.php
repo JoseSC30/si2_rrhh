@@ -13,7 +13,9 @@ use App\Models\Empleado;
 use App\Models\Tipocontrato;
 use App\Models\Turno;
 use App\Models\EstadoContrato;
+//
 use Carbon\carbon;
+use PDF;
 
 
 /**
@@ -33,6 +35,17 @@ class ContratoController extends Controller
 
         return view('contrato.index', compact('contratos'))
             ->with('i', (request()->input('page', 1) - 1) * $contratos->perPage());
+    }
+
+    public function pdf(Request $request)
+    {
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->format('d-m-Y');
+
+        $contratos = Contrato::paginate();
+        $pdf = PDF::loadView('contrato.pdf',['contratos'=>$contratos],compact('hora','fecha'));  
+        return $pdf->stream();                                            
     }
 
     /**

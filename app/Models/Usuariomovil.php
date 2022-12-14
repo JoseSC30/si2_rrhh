@@ -4,6 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+//
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+//
+
+
 /**
  * Class Usuariomovil
  *
@@ -16,9 +23,15 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
+
 class Usuariomovil extends Model
 {
-    
+  //Api
+  use HasApiTokens, HasFactory, Notifiable;
+    protected $table = "usuariomovils";
+  //Api
+
+
     static $rules = [
 		'usuario' => 'required',
 		'contrasena' => 'required',
@@ -33,6 +46,7 @@ class Usuariomovil extends Model
      */
     protected $fillable = ['usuario','contrasena'];
 
+    
     public function empleado()
     {
         return $this->hasOne('App\Models\Empleado', 'usuariomovil_id', 'id');

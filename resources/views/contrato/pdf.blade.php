@@ -4,61 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>empleadoPDF</title>
+    <title>contratoPDF</title>
 
     
 </head>
 
 
 <body>
-    <h2><center>- Reporte:Lista de empleados RRHH -</center></h2>
-    <h4><br> 
+    <h2><center>- Lista de contratos -</center></h2>
+
+    <h4>Recursos Humanos <br> 
     Fecha:{{$fecha}} <br> 
     Hora: {{$hora}} <br>
     </h4>
     <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
     <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
-    
-        <table class="table table-striped table-hover">
+
+    <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
                                         
-										<th>NOMBRE</th>
-										<th>CI</th>
-										<th>FECHA NACIMIENTO</th>
-										<th>SEXO</th>
-										<th>DIRECCION</th>
-                                        <th>PUESTO LABORAL</th>
-                                        <!-- 
-										<th>USUARIO MOVIL</th>
-                                        -->
-
-                                        <th></th>
+										<th>REGISTRADO_POR</th>
+										<th>EMPLEADO </th>
+										
+										<th>ESTADO</th>
+										<th>TURNO</th>
+										<th>FECHA</th>
+										<th>HORA</th>
+										
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                {{ $i = 0 }}                      
-                                    @foreach ($empleados as $empleado)
+
+                                    {{ $i = 0 }}  
+                                    @foreach ($contratos as $contrato)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empleado->nombre }}</td>
-											<td>{{ $empleado->ci }}</td>
-											<td>{{ $empleado->fnacimiento }}</td>
-											<td>{{ $empleado->sexo }}</td>
-											<td>{{ $empleado->direccion }}</td>
-                                            <td>{{ $empleado->puestolaboral->nombre}}</td>
-                                            <!-- 
-											<td>{{ $empleado->usuariomovil->usuario}}</td>
-                                            -->
+											<td>{{ $contrato->user->empleados->nombre}}</td>
+											<td>{{ $contrato->empleado->nombre }}</td>
+											
+											<td>{{ $contrato->estadoContrato->nombre }}</td>
+											<td>{{ $contrato->turno->nombre }}</td>
+											<td>{{ $contrato->fecha }}</td>
+											<td>{{ $contrato->hora }}</td>
+											
                                         </tr>
                                     @endforeach
                                 </tbody>
-        </table>
-
+    </table>
     <h7>-------------------------------------------------------------------------------------------------------------------------------</h7>
-    
+
 </body>
 </html>
