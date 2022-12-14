@@ -48,4 +48,5 @@ Route::resource('planillasueldos', App\Http\Controllers\PlanillasueldoController
 Route::resource('usuariomovils', App\Http\Controllers\UsuariomovilController::class);
 Route::resource('asistencias', App\Http\Controllers\AsistenciaController::class);
 Route::resource('permisolaborals', App\Http\Controllers\PermisolaboralController::class);
+Route::resource('comunicados', App\Http\Controllers\ComunicadoController::class);
 
