@@ -6,6 +6,11 @@ use App\Models\Comunicado;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\BitacoraController;
+
+use Carbon\carbon;
+use Auth;
+
 /**
  * Class ComunicadoController
  * @package App\Http\Controllers
@@ -34,7 +39,12 @@ class ComunicadoController extends Controller
     {
         $comunicado = new Comunicado();
         $usuarioss = User::pluck('email','id');
-        return view('comunicado.create', compact('comunicado','usuarioss'));
+
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->toDateString();
+
+        return view('comunicado.create', compact('comunicado','usuarioss','hora','fecha'));
     }
 
     /**
@@ -48,6 +58,11 @@ class ComunicadoController extends Controller
         request()->validate(Comunicado::$rules);
 
         $comunicado = Comunicado::create($request->all());
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Registro de COMUNICADO: ".$comunicado->titulo;
+        app(BitacoraController::class)->registrar($detalle);
+        //
 
         return redirect()->route('comunicados.index')
             ->with('success', 'Comunicado created successfully.');
@@ -84,7 +99,16 @@ class ComunicadoController extends Controller
     {
         $comunicado = Comunicado::find($id);  
         $usuarioss = User::pluck('email','id');
-        return view('comunicado.edit', compact('comunicado','usuarioss'));
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se EDITÓ los datos del COMUNICADO: ".$comunicado->titulo;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->toDateString();
+        return view('comunicado.edit', compact('comunicado','usuarioss','hora','fecha'));
     }
 
     /**
@@ -111,7 +135,14 @@ class ComunicadoController extends Controller
      */
     public function destroy($id)
     {
-        $comunicado = Comunicado::find($id)->delete();
+        $comunicado = Comunicado::find($id);
+
+        //CODIGO PARA LA BITACORA
+        $detalle = "Se ELIMINÓ el COMUNICADO: ".$comunicado->titulo;
+        app(BitacoraController::class)->registrar($detalle);
+        //
+
+        $comunicado->delete();
 
         return redirect()->route('comunicados.index')
             ->with('success', 'Comunicado deleted successfully');

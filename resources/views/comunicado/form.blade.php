@@ -2,8 +2,8 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('usuario_id') }}
-            {{ Form::select('usuario_id', $usuarioss, $comunicado->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuario Id']) }}
+            {{ Form::label('usuario') }}
+            {{ Form::text('usuario_id', $comunicado->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'Value' => Auth::user()->id , 'readonly']) }}
             {!! $errors->first('usuario_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -18,12 +18,12 @@
         </div>
         <div class="form-group">
             {{ Form::label('fecha') }}
-            {{ Form::text('fecha', $comunicado->fecha, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'Fecha']) }}
+            {{ Form::text('fecha', $comunicado->fecha, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'Value' => $fecha, 'readonly']) }}
             {!! $errors->first('fecha', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('hora') }}
-            {{ Form::text('hora', $comunicado->hora, ['class' => 'form-control' . ($errors->has('hora') ? ' is-invalid' : ''), 'placeholder' => 'Hora']) }}
+            {{ Form::text('hora', $comunicado->hora, ['class' => 'form-control' . ($errors->has('hora') ? ' is-invalid' : ''), 'Value' => $hora, 'readonly']) }}
             {!! $errors->first('hora', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

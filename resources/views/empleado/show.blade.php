@@ -21,12 +21,12 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Puestolaboral Id:</strong>
-                            {{ $empleado->puestolaboral_id }}
+                            <strong>Puesto Laboral:</strong>
+                            {{ $empleado->puestolaboral->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Usuariomovil Id:</strong>
-                            {{ $empleado->usuariomovil_id }}
+                            <strong>Usuario Movil:</strong>
+                            {{ $empleado->usuariomovil->usuario }}
                         </div>
                         <div class="form-group">
                             <strong>Nombre:</strong>
@@ -37,7 +37,7 @@
                             {{ $empleado->ci }}
                         </div>
                         <div class="form-group">
-                            <strong>Fnacimiento:</strong>
+                            <strong>Fecha de Nacimiento:</strong>
                             {{ $empleado->fnacimiento }}
                         </div>
                         <div class="form-group">

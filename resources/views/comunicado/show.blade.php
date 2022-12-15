@@ -14,15 +14,15 @@
                             <span class="card-title">Mostrar Comunicado</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('comunicados.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('comunicados.index') }}"> Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Usuario Id:</strong>
-                            {{ $comunicado->usuario_id }}
+                            <strong>Autor de Comunicado:</strong>
+                            {{ $comunicado->usuario->empleados->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Titulo:</strong>
