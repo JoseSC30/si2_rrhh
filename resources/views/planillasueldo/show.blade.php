@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Planillasueldo</span>
+                            <span class="card-title">Mostrar Planilla Sueldo</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('planillasueldos.index') }}"> Back</a>

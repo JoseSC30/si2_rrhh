@@ -17,7 +17,7 @@
             {!! $errors->first('fecha', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('usuariomovil_id') }}
+            {{ Form::label('_id_usuario Movil') }}
             {{ Form::select('usuariomovil_id', $usuariomovilss, $asistencia->usuariomovil_id, ['class' => 'form-control' . ($errors->has('usuariomovil_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuariomovil Id']) }}
             {!! $errors->first('usuariomovil_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>

@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Permisolaboral</span>
+                        <span class="card-title">Actualizar Permiso Laboral</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('permisolaborals.update', $permisolaboral->id) }}"  role="form" enctype="multipart/form-data">
