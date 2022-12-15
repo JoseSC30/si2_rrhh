@@ -39,6 +39,9 @@ class Comunicado extends Model
      */
     protected $fillable = ['usuario_id','titulo','detalle','fecha','hora'];
 
-
+    public function usuario()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'usuario_id');
+    }
 
 }

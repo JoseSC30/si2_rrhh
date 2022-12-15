@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comunicado;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class ComunicadoController extends Controller
     public function create()
     {
         $comunicado = new Comunicado();
-        return view('comunicado.create', compact('comunicado'));
+        $usuarioss = User::pluck('email','id');
+        return view('comunicado.create', compact('comunicado','usuarioss'));
     }
 
     /**
@@ -49,6 +51,14 @@ class ComunicadoController extends Controller
 
         return redirect()->route('comunicados.index')
             ->with('success', 'Comunicado created successfully.');
+    }
+
+    // FUNCION PARA EL API
+    public function enviarComunicados()
+    {
+        $rec = Comunicado::all('id','titulo','detalle','fecha','hora');
+
+        return response()->json($rec);
     }
 
     /**
@@ -72,9 +82,9 @@ class ComunicadoController extends Controller
      */
     public function edit($id)
     {
-        $comunicado = Comunicado::find($id);
-
-        return view('comunicado.edit', compact('comunicado'));
+        $comunicado = Comunicado::find($id);  
+        $usuarioss = User::pluck('email','id');
+        return view('comunicado.edit', compact('comunicado','usuarioss'));
     }
 
     /**
