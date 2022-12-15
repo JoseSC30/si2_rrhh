@@ -36,11 +36,10 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Usuario Id</th>
-										<th>Titulo</th>
-										<th>Detalle</th>
-										<th>Fecha</th>
-										<th>Hora</th>
+										<th>AUTOR</th>
+										<th>TITULO DEL COMUNICADO</th>
+										<th>FECHA</th>
+										<th>HORA</th>
 
                                         <th></th>
                                     </tr>
@@ -50,15 +49,14 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $comunicado->usuario_id }}</td>
+											<td>{{ $comunicado->usuario->empleados->nombre }}</td>
 											<td>{{ $comunicado->titulo }}</td>
-											<td>{{ $comunicado->detalle }}</td>
 											<td>{{ $comunicado->fecha }}</td>
 											<td>{{ $comunicado->hora }}</td>
 
                                             <td>
                                                 <form action="{{ route('comunicados.destroy',$comunicado->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('comunicados.show',$comunicado->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('comunicados.show',$comunicado->id) }}"><i class="fa fa-fw fa-eye"></i> Más Información</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('comunicados.edit',$comunicado->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

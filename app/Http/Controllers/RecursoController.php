@@ -51,6 +51,36 @@ class RecursoController extends Controller
             ->with('success', 'Recurso created successfully.');
     }
 
+    ////////////////////// FUNCIONES DE EL API //////////////////////////
+
+    // public function enviarEmpleados() 
+    // {
+    //     $empleados = Empleado::all('id','nombre','ci','fnacimiento','sexo','direccion', 'puestolaboral_id','usuariomovil_id');
+
+    //     return response()->json($empleados);
+        
+    // }
+    // public function buscarEmpleado(Request $request)
+    // {
+    //     $e_id = $request->input('id');
+
+    //     $empleados = Empleado::all();
+    //     foreach ($empleados as $key ) {
+    //         if ($key->usuariomovil_id == $e_id) {
+    //             return response()->json([
+    //                 'id' => $key->id,
+    //                 'nombre' => $key->nombre,
+    //                 'ci' => $key->ci,
+    //                 'fnacimiento' => $key->fnacimiento,
+    //                 'sexo' => $key->sexo,
+    //                 'direccion' => $key->direccion,
+    //                 'puestoLLaboral' => $key->puestolaboral->nombre,
+    //             ]);
+    //         }
+    //     }
+    // }
+////////////////////////////////////////////////////////////////
+
     /**
      * Display the specified resource.
      *
