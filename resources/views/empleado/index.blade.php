@@ -46,7 +46,7 @@
 										<th>SEXO</th>
 										<th>DIRECCION</th>
                                         <th>PUESTO LABORAL</th>
-										<th>USUARIO MOVIL</th>
+                                 <!--  <th>USUARIO MOVIL</th>    -->
 
                                         <th></th>
                                     </tr>
@@ -62,7 +62,7 @@
 											<td>{{ $empleado->sexo }}</td>
 											<td>{{ $empleado->direccion }}</td>
                                             <td>{{ $empleado->puestolaboral->nombre }}</td>
-											<td>{{ $empleado->usuariomovil->usuario }}</td>
+                                            
 
                                             <td>
                                                 <form action="{{ route('empleados.destroy',$empleado->id) }}" method="POST">

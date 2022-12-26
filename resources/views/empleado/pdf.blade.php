@@ -50,9 +50,7 @@
 											<td>{{ $empleado->sexo }}</td>
 											<td>{{ $empleado->direccion }}</td>
                                             <td>{{ $empleado->puestolaboral->nombre}}</td>
-                                            <!-- 
-											<td>{{ $empleado->usuariomovil->usuario}}</td>
-                                            -->
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>
