@@ -43,10 +43,6 @@
 										<th>NOMBRE</th>
 										<th>CI</th>
                                         <th>PUESTO LABORAL</th>
-<<<<<<< HEAD
-                                 <!--  <th>USUARIO MOVIL</th>    -->
-=======
->>>>>>> 6fa993c8c22597edc1c9bd3436c4fddcb6fe4c90
 
                                         <th></th>
                                     </tr>
@@ -59,10 +55,6 @@
 											<td>{{ $empleado->nombre }}</td>
 											<td>{{ $empleado->ci }}</td>
                                             <td>{{ $empleado->puestolaboral->nombre }}</td>
-<<<<<<< HEAD
-                                            
-=======
->>>>>>> 6fa993c8c22597edc1c9bd3436c4fddcb6fe4c90
 
                                             <td>
                                                 <form action="{{ route('empleados.destroy',$empleado->id) }}" method="POST">
