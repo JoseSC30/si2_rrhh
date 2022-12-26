@@ -2,12 +2,12 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('horainicio') }}
+            {{ Form::label('hora inicio') }}
             {{ Form::text('horainicio', $horario->horainicio, ['class' => 'form-control' . ($errors->has('horainicio') ? ' is-invalid' : ''), 'placeholder' => 'Horainicio']) }}
             {!! $errors->first('horainicio', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('horafinal') }}
+            {{ Form::label('hora final') }}
             {{ Form::text('horafinal', $horario->horafinal, ['class' => 'form-control' . ($errors->has('horafinal') ? ' is-invalid' : ''), 'placeholder' => 'Horafinal']) }}
             {!! $errors->first('horafinal', '<div class="invalid-feedback">:message</div>') !!}
         </div>

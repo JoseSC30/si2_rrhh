@@ -42,11 +42,11 @@
 										
 										<th>NOMBRE</th>
 										<th>CI</th>
-										<th>FECHA NACIMIENTO</th>
-										<th>SEXO</th>
-										<th>DIRECCION</th>
                                         <th>PUESTO LABORAL</th>
+<<<<<<< HEAD
                                  <!--  <th>USUARIO MOVIL</th>    -->
+=======
+>>>>>>> 6fa993c8c22597edc1c9bd3436c4fddcb6fe4c90
 
                                         <th></th>
                                     </tr>
@@ -58,15 +58,15 @@
                                             
 											<td>{{ $empleado->nombre }}</td>
 											<td>{{ $empleado->ci }}</td>
-											<td>{{ $empleado->fnacimiento }}</td>
-											<td>{{ $empleado->sexo }}</td>
-											<td>{{ $empleado->direccion }}</td>
                                             <td>{{ $empleado->puestolaboral->nombre }}</td>
+<<<<<<< HEAD
                                             
+=======
+>>>>>>> 6fa993c8c22597edc1c9bd3436c4fddcb6fe4c90
 
                                             <td>
                                                 <form action="{{ route('empleados.destroy',$empleado->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Visualizar</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Más Información</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('empleados.edit',$empleado->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

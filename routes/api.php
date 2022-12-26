@@ -29,7 +29,7 @@ Route::get('/get_usuariomovils', [App\Http\Controllers\UsuariomovilController::c
 Route::get('/get_empleados', [App\Http\Controllers\UsuariomovilController::class, 'enviarEmpleados']);
 Route::post('/post_empleados', [App\Http\Controllers\UsuariomovilController::class, 'buscarEmpleado']);
 */
-
+Route::get('/get_comunicados', [App\Http\Controllers\ComunicadoController::class, 'enviarComunicados']);//API de prueba
 //
 Route::post('login', [UsuariomovilController::class,'login']);
 //

@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Rol</span>
+                        <span class="card-title">Crear Rol</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('rols.store') }}"  role="form" enctype="multipart/form-data">
