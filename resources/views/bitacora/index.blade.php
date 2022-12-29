@@ -16,11 +16,12 @@
                                 {{ __('BITACORA') }}
                             </span>
 
-                             <!-- <div class="float-right">
-                                <a href="{{ route('bitacoras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                             <div class="float-right">
+                             <a href="{{ route('bitacoras.pdf') }}" class="btn btn-primary btn-sm "  data-placement="left">
+                                  {{ __('Generar reporte') }}
                                 </a>
-                              </div> -->
+&nbsp;
+                              </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))

@@ -25,30 +25,35 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        $puestolaboral = new Puestolaboral;
+        $puestolaboral->nombre = 'Administrador RRHH';
+        $puestolaboral->descripcion = 'Los encargados de este puesto laboral se en cargaran de adminitrar la aplicacion web';
+        $puestolaboral->espacios = '5';
+        $puestolaboral->save();
+
+        $usuariomovil = new Usuariomovil;
+        $usuariomovil->usuario = 'jgomez@gmail.com';
+        $usuariomovil->contrasena = bcrypt('password');
+        $usuariomovil->save();
+
         $empleado = new Empleado;
-
-        $empleado->puestolaboral_id = 'Sin Asignar';
-        $empleado->usuariomovil_id = 'Sin Asignar';
-
+        $empleado->puestolaboral_id = '1';
+        $empleado->usuariomovil_id = '1';
         $empleado->nombre = 'JUAN GOMEZ';
         $empleado->ci='12345678';
         $empleado->fnacimiento='2000-01-01';
         $empleado->sexo='M';
         $empleado->direccion='Avenida Santos Dumont';
-    
         $empleado->save();
 
         $rol = new Rol;
         $rol->nombre = 'Administrador';
         $rol->descripcion = 'Tiene todos los permisos del sistema';
-
         $rol->save();
         
         $user = new User;
-
         $user->empleado_id='1';
         $user->rol_id='1';
-
         $user->email='admin@mail.com';
         $user->password=bcrypt('password');
         $user->save();

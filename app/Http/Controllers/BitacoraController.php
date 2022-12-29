@@ -28,6 +28,18 @@ class BitacoraController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $bitacoras->perPage());
     }
 
+    public function pdf(Request $request)
+    {
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->format('d-m-Y');
+
+        $bitacoras = Bitacora::paginate();
+        $pdf = PDF::loadView('bitacora.pdf',['bitacoras'=>$bitacoras],compact('hora','fecha')); 
+        return $pdf->stream();                                            
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
