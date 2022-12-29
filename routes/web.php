@@ -49,4 +49,4 @@ Route::resource('usuariomovils', App\Http\Controllers\UsuariomovilController::cl
 Route::resource('asistencias', App\Http\Controllers\AsistenciaController::class);
 Route::resource('permisolaborals', App\Http\Controllers\PermisolaboralController::class);
 Route::resource('comunicados', App\Http\Controllers\ComunicadoController::class);
-
+Route::resource('sueldos', App\Http\Controllers\SueldoController::class);
