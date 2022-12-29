@@ -435,7 +435,11 @@ return [
             'url'  => 'permisolaborals',
             'icon' => 'fas fa-fw fa-file',
         ],
-
+        [
+            'text' => 'SOLICITUDES DE EMPLEO ',
+            'url'  => 'empleosolicituds',
+            'icon' => 'fas fa-fw fa-users',
+        ],
         [
             'text' => 'cambiar contraseña',
             'url'  => 'admin/settings',
