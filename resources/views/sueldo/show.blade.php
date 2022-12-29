@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $comunicado->name ?? 'Show Comunicado' }}
+    {{ $sueldo->name ?? 'Show SUELDOS' }}
 @endsection
 
 @section('content')
@@ -11,34 +11,30 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Mostrar Comunicado</span>
+                            <span class="card-title">Show SUELDOS</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('comunicados.index') }}"> Atrás</a>
+                            <a class="btn btn-primary" href="{{ route('sueldos.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Autor de Comunicado:</strong>
-                            {{ $comunicado->usuario->empleados->nombre }}
+                            <strong>Empleado:</strong>
+                            {{ $sueldo->empleado_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Titulo:</strong>
-                            {{ $comunicado->titulo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Detalle:</strong>
-                            {{ $comunicado->detalle }}
+                            <strong>Monto:</strong>
+                            {{ $sueldo->monto }}
                         </div>
                         <div class="form-group">
                             <strong>Fecha:</strong>
-                            {{ $comunicado->fecha }}
+                            {{ $sueldo->fecha }}
                         </div>
                         <div class="form-group">
                             <strong>Hora:</strong>
-                            {{ $comunicado->hora }}
+                            {{ $sueldo->hora }}
                         </div>
 
                     </div>

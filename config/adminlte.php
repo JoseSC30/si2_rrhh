@@ -362,6 +362,12 @@ return [
         ],
 
         [
+            'text' => 'SUELDOS',
+            'url'  => 'sueldos',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
             'text'    => 'Ajustes de contrato',
             'icon' => 'fas fa-fw fa-group',
             'submenu' => [

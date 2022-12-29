@@ -2,12 +2,12 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('puestolaboral') }}
+            {{ Form::label('puesto laboral') }}
             {{ Form::select('puestolaboral_id', $puestolaboralss, $empleado->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Puestolaboral Id']) }}
             {!! $errors->first('puestolaboral_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('usuariomovil_id') }}
+            {{ Form::label('usuario movil') }}
             {{ Form::select('usuariomovil_id', $usuariomovilss, $empleado->usuariomovil_id, ['class' => 'form-control' . ($errors->has('usuariomovil_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuariomovil Id']) }}
             {!! $errors->first('usuariomovil_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
