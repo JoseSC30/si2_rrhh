@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    Empleado
+    Sueldo
 @endsection
 
 @section('content')
@@ -13,18 +13,14 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('EMPLEADOS') }}
+                                {{ __('SUELDOS') }}
                             </span>
 
-                            <div class="float-right">
-                                <a href="{{ route('empleados.pdf') }}" class="btn btn-primary btn-sm "  data-placement="left">
-                                  {{ __('Generar reporte') }}
+                             <div class="float-right">
+                                <a href="{{ route('sueldos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
                                 </a>
-&nbsp;
-                                <a href="{{ route('empleados.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Registar Nuevo Empleado') }}
-                                </a>
-                            </div>
+                              </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -38,33 +34,33 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>                                        
-										
-										<th>NOMBRE</th>
-
-										<th>CI</th>	
-
-                                        <th>PUESTO LABORAL</th>
+                                        <th>No</th>
+                                        
+										<th>Empleado</th>
+										<th>Monto</th>
+										<th>Fecha</th>
+										<th>Hora</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($empleados as $empleado)
+                                    @foreach ($sueldos as $sueldo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empleado->nombre }}</td>
-											<td>{{ $empleado->ci }}</td>
-                                            <td>{{ $empleado->puestolaboral->nombre }}</td>
+											<td>{{ $sueldo->empleado_id }}</td>
+											<td>{{ $sueldo->monto }}</td>
+											<td>{{ $sueldo->fecha }}</td>
+											<td>{{ $sueldo->hora }}</td>
 
                                             <td>
-                                                <form action="{{ route('empleados.destroy',$empleado->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('empleados.show',$empleado->id) }}"><i class="fa fa-fw fa-eye"></i> Más Información</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('empleados.edit',$empleado->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('sueldos.destroy',$sueldo->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('sueldos.show',$sueldo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('sueldos.edit',$sueldo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -74,10 +70,8 @@
                         </div>
                     </div>
                 </div>
-                {!! $empleados->links() !!}
+                {!! $sueldos->links() !!}
             </div>
         </div>
     </div>
 @endsection
-
-

@@ -362,6 +362,12 @@ return [
         ],
 
         [
+            'text' => 'SUELDOS',
+            'url'  => 'sueldos',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
+        [
             'text'    => 'Ajustes de contrato',
             'icon' => 'fas fa-fw fa-group',
             'submenu' => [
@@ -435,7 +441,11 @@ return [
             'url'  => 'permisolaborals',
             'icon' => 'fas fa-fw fa-file',
         ],
-
+        [
+            'text' => 'SOLICITUDES DE EMPLEO ',
+            'url'  => 'empleosolicituds',
+            'icon' => 'fas fa-fw fa-users',
+        ],
         [
             'text' => 'cambiar contraseña',
             'url'  => 'admin/settings',
