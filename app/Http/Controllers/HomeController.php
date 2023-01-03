@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//
+use App\Models\Empleado;
+use App\Models\Comunicado;
+use App\Models\Contacto;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +28,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalEmpleados = Empleado::count();
+        $totalComunicados = Comunicado::count();
+
+        $todoscomun = Comunicado::all('id','titulo','detalle');
+        $cadena = json_decode($todoscomun);
+        $Comun = end($cadena);
+        $xComun = $Comun;
+
+        $totalContactos = Contacto::count();
+
+        return view('home', compact('totalEmpleados','totalComunicados','xComun','totalContactos'));
+
     }
+
+
 }
