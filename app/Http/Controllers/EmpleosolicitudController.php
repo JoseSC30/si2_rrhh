@@ -90,8 +90,9 @@ class EmpleosolicitudController extends Controller
     public function edit($id)
     {
         $empleosolicitud = Empleosolicitud::find($id);
+        $puestolaboralss = Puestolaboral::pluck('nombre','id');
 
-        return view('empleosolicitud.edit', compact('empleosolicitud'));
+        return view('empleosolicitud.edit', compact('empleosolicitud','puestolaboralss'));
     }
 
     /**

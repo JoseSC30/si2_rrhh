@@ -3,7 +3,7 @@
         
         <div class="form-group">
             {{ Form::label('puesto laboral') }}
-            {{ Form::text('puestolaboral_id', $empleosolicitud->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Puestolaboral Id']) }}
+            {{ Form::select('puestolaboral_id', $puestolaboralss, $empleosolicitud->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Puestolaboral Id']) }}
             {!! $errors->first('puestolaboral_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

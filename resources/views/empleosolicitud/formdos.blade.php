@@ -3,7 +3,7 @@
         
         <div class="form-group">
             {{ Form::label('    Elige el puesto al que pretendes postular') }}
-            {{ Form::select('puestolaboral_id', $puestolaboralss, $empleosolicitud->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar..']) }}
+            {{ Form::select('puestolaboral_id', $puestolaboralss , $empleosolicitud->puestolaboral_id, ['class' => 'form-control' . ($errors->has('puestolaboral_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar..']) }}
             {!! $errors->first('puestolaboral_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
