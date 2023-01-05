@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Link del CV:</strong>
-                            {{ $empleosolicitud->link_cv }}
+                            <a href="{{$empleosolicitud->link_cv}}" class="card-link" > {{$empleosolicitud->link_cv}}</a>
                         </div>
                         <div class="form-group">
                             <strong>Valoracion:</strong>
