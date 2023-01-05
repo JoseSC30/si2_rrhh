@@ -20,6 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::resource('welcomes', App\Http\Controllers\HomeController::class);
+Route::get('/bienvenido', 'App\Http\Controllers\HomeController@bienvenido')->name('welcomes.bienvenido');
 
 
 //Rutas PDF

@@ -2,9 +2,9 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('empleado') }}
-            {{ Form::text('empleado', $sueldo->empleado_id, ['class' => 'form-control' . ($errors->has('empleado') ? ' is-invalid' : ''), 'placeholder' => 'Empleado Id']) }}
-            {!! $errors->first('empleado', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('Seleccione al empleado') }}
+            {{ Form::select('empleado_id', $empleado, $sueldo->empleado_id, ['class' => 'form-control' . ($errors->has('empleado_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar...']) }}
+            {!! $errors->first('empleado_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('monto') }}
@@ -13,17 +13,17 @@
         </div>
         <div class="form-group">
             {{ Form::label('fecha') }}
-            {{ Form::text('fecha', $sueldo->fecha, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'Fecha']) }}
+            {{ Form::text('fecha', $sueldo->fecha, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'Value' => $fecha, 'readonly']) }}
             {!! $errors->first('fecha', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('hora') }}
-            {{ Form::text('hora', $sueldo->hora, ['class' => 'form-control' . ($errors->has('hora') ? ' is-invalid' : ''), 'placeholder' => 'Hora']) }}
+            {{ Form::text('hora', $sueldo->hora, ['class' => 'form-control' . ($errors->has('hora') ? ' is-invalid' : ''), 'Value' => $hora, 'readonly']) }}
             {!! $errors->first('hora', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
 </div>

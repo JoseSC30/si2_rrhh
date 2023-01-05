@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('usuariomovils.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear nuevo') }}
+                                  {{ __('Crear Nuevo Usuario Movil') }}
                                 </a>
                               </div>
                         </div>
@@ -37,7 +37,7 @@
                                         <th>No</th>
                                         
 										<th>USUARIO</th>
-										<!-- <th>EMPLEADO</th> -->
+										<th>EMPLEADO</th>
 										<!-- <th>Contrasena</th> -->
 
                                         <th></th>
@@ -49,10 +49,14 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $usuariomovil->usuario }}</td>
-
+                                            @if ($usuariomovil->empleado !== null && $usuariomovil->empleado->nombre !== null)
+                                                <td>{{ $usuariomovil->empleado->nombre }}</td>
+                                            @else
+                                                <td>Sin Asignar</td>
+                                            @endif
                                             <td>
                                                 <form action="{{ route('usuariomovils.destroy',$usuariomovil->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('usuariomovils.show',$usuariomovil->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('usuariomovils.show',$usuariomovil->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('usuariomovils.edit',$usuariomovil->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

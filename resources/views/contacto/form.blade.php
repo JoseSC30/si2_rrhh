@@ -2,8 +2,8 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('id_empleado') }}
-            {{ Form::select('empleado_id', $empleadoss, $contacto->empleado_id, ['class' => 'form-control' . ($errors->has('empleado_id') ? ' is-invalid' : ''), 'placeholder' => 'Empleado Id']) }}
+            {{ Form::label('Seleccionar Empleado') }}
+            {{ Form::select('empleado_id', $empleadoss, $contacto->empleado_id, ['class' => 'form-control' . ($errors->has('empleado_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar...']) }}
             {!! $errors->first('empleado_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -27,18 +27,18 @@
             {!! $errors->first('email_dos', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('redsocial_uno') }}
+            {{ Form::label('red social_uno') }}
             {{ Form::text('redsocial_uno', $contacto->redsocial_uno, ['class' => 'form-control' . ($errors->has('redsocial_uno') ? ' is-invalid' : ''), 'placeholder' => 'Redsocial Uno']) }}
             {!! $errors->first('redsocial_uno', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('redsocial_dos') }}
+            {{ Form::label('red social_dos') }}
             {{ Form::text('redsocial_dos', $contacto->redsocial_dos, ['class' => 'form-control' . ($errors->has('redsocial_dos') ? ' is-invalid' : ''), 'placeholder' => 'Redsocial Dos']) }}
             {!! $errors->first('redsocial_dos', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
     </div>
 </div>

@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $sueldo->name ?? 'Show SUELDOS' }}
+    {{ $sueldo->name ?? 'Show Sueldo' }}
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show SUELDOS</span>
+                            <span class="card-title">Show Sueldo</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('sueldos.index') }}"> Back</a>
@@ -21,7 +21,7 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Empleado:</strong>
+                            <strong>Empleado Id:</strong>
                             {{ $sueldo->empleado_id }}
                         </div>
                         <div class="form-group">

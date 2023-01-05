@@ -47,5 +47,8 @@ class Asistencia extends Model
         return $this->hasOne('App\Models\Usuariomovil', 'id', 'usuariomovil_id');
     }
     
-
+    public function empleado()
+    {
+        return $this->hasOne('App\Models\Empleado', 'usuariomovil_id', 'usuariomovil_id');
+    }
 }

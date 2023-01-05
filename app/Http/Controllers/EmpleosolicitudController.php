@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleosolicitud;
+use App\Models\Puestolaboral;
 use Illuminate\Http\Request;
+use Auth;
 
 /**
  * Class EmpleosolicitudController
@@ -29,10 +31,24 @@ class EmpleosolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function solicitudesss()
+    {
+        $empleosolicitud = new Empleosolicitud();
+        return view('empleosolicitud.solicitud', compact('empleosolicitud'));
+    }
+
     public function create()
     {
         $empleosolicitud = new Empleosolicitud();
-        return view('empleosolicitud.create', compact('empleosolicitud'));
+        
+        $puestolaboralss = Puestolaboral::pluck('nombre','id');
+
+        if(Auth::user()==null){
+            return view('empleosolicitud.solicitud', compact('empleosolicitud','puestolaboralss'));
+        }else{
+            return view('empleosolicitud.create', compact('empleosolicitud','puestolaboralss'));
+        }
     }
 
     /**
@@ -47,8 +63,9 @@ class EmpleosolicitudController extends Controller
 
         $empleosolicitud = Empleosolicitud::create($request->all());
 
-        return redirect()->route('empleosolicituds.index')
-            ->with('success', 'Empleosolicitud created successfully.');
+        // return redirect()->route('empleosolicituds.index')
+        //     ->with('success', 'Empleosolicitud created successfully.');
+        return redirect()->route('welcomes.bienvenido');
     }
 
     /**

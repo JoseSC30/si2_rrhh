@@ -11,21 +11,21 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Mostrar Recurso</span>
+                            <span class="card-title">Información Completa Recurso</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('recursos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('recursos.index') }}"> Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nombre:</strong>
+                            <strong>Nombre del Recurso o Beneficio:</strong>
                             {{ $recurso->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Detalle:</strong>
+                            <strong>Detalles:</strong>
                             {{ $recurso->detalle }}
                         </div>
                         <div class="form-group">

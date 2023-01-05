@@ -14,7 +14,7 @@
                             <span class="card-title">Mostrar Asistencia</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('asistencias.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('asistencias.index') }}"> Atrás</a>
                         </div>
                     </div>
 
@@ -33,8 +33,16 @@
                             {{ $asistencia->fecha }}
                         </div>
                         <div class="form-group">
-                            <strong>Usuariomovil Id:</strong>
-                            {{ $asistencia->usuariomovil_id }}
+                            <strong>Nombre del Empleado:</strong>
+                            {{ $asistencia->empleado->nombre }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Usuario Movil:</strong>
+                            {{ $asistencia->usuariomovil->usuario }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Puesto Laboral:</strong>
+                            {{ $asistencia->empleado->puestolaboral->nombre }}
                         </div>
 
                     </div>

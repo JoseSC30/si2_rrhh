@@ -16,11 +16,11 @@
                                 {{ __('SOLICITUDES DE EMPLEO') }}
                             </span>
 
-                             <div class="float-right">
+                             <!-- <div class="float-right">
                                 <a href="{{ route('empleosolicituds.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
-                              </div>
+                              </div> -->
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -48,7 +48,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empleosolicitud->puestolaboral_id }}</td>
+											<td>{{ $empleosolicitud->puestolaboral->nombre }}</td>
 											<td>{{ $empleosolicitud->nombre }}</td>
 											<td>{{ $empleosolicitud->valoracion }}</td>
 
@@ -58,7 +58,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('empleosolicituds.edit',$empleosolicitud->id) }}"><i class="fa fa-fw fa-edit"></i> AÑADIR VALORACION</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> DESCARTAR</button>
                                                 </form>
                                             </td>
                                         </tr>

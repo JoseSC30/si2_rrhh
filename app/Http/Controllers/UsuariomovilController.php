@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuariomovil;
 use App\Models\Empleado;
+use App\Models\Sueldo;
 
 use Illuminate\Http\Request;
 
@@ -62,7 +63,7 @@ class UsuariomovilController extends Controller
         //
 
         return redirect()->route('usuariomovils.index')
-            ->with('success', 'Usuariomovil created successfully.');
+            ->with('success', 'Usuario Movil Creado.');
     }
 ////////////////////// FUNCIONES DE EL API //////////////////////////
  /*   public function enviarUsuariomovils()
@@ -137,7 +138,12 @@ class UsuariomovilController extends Controller
     {
         request()->validate(Usuariomovil::$rules);
 
-        $usuariomovil->update($request->all());
+        // $usuariomovil->update($request->all());
+
+        $usuariomovil->update([
+             'usuario' => $request['usuario'],
+             'contrasena' => Hash::make($request['contrasena']),
+         ]);
 
         return redirect()->route('usuariomovils.index')
             ->with('success', 'Usuariomovil updated successfully');
@@ -195,11 +201,50 @@ class UsuariomovilController extends Controller
             if(Hash::check($request->contrasena, $usuariomovil->contrasena)){
                 //creamos el token
                 $token = $usuariomovil->createToken("auth_token")->plainTextToken;
+                //Busca al empleado al que pertenece el usuario movil.
+                $empleado;
+                // $sueldosEmpleado;
+                $sueldosEmpleado;
+
+                $empleados = Empleado::all();
+                foreach ($empleados as $key) {
+                    if ($key->usuariomovil_id == $usuariomovil->id) {
+                        $empleado = $key;
+                    }
+                }
+
+                $sueldos = Sueldo::all();
+                foreach ($sueldos as $key) {
+                    if($key->empleado_id == $empleado->id) {
+                        // $sueldosEmpleado[] = $key ;
+                        $sueldosEmpleado[] = [
+                            'id'    => $key->id,
+                            'monto' => $key->monto,
+                            'fecha' => $key->fecha,
+                            'hora'  => $key->hora
+                            ];
+                    }
+                }
+
                 //si está todo bien
                 return response()->json([
+                    //TOKEN y CONFIRMACIÓN (Para enviar al celular)
                     "status" => 1,
                     "msg" => "¡Usuario logueado exitosamente!",
-                    "access_token" => $token
+                    "access_token" => $token,
+
+                    //INFORMACION DEL EMPLEADO (Para enviar al celular)
+                    'id' => $empleado->id,
+                    'nombre' => $empleado->nombre,
+                    'ci' => $empleado->ci,
+                    'fnacimiento' => $empleado->fnacimiento,
+                    'sexo' => $empleado->sexo,
+                    'direccion' => $empleado->direccion,
+                    'puestoLLaboral' => $empleado->puestolaboral->nombre,
+                    'usuariomovil_id' => $usuariomovil->id,
+                    
+                    //HISTORIAL DE SUELDOS (Para enviar al celular)
+                    // 'sueldos' => $sueldosEmpleado,
                 ]);        
             }else{
                 return response()->json([
@@ -213,6 +258,26 @@ class UsuariomovilController extends Controller
                 "status" => 0,
                 "msg" => "Usuario no registrado",
             ], 404);  
+        }
+    }
+
+    public function buscarEmpleado(Request $request)
+    {
+        $e_id = $request->input('id');
+
+        $empleados = Empleado::all();
+        foreach ($empleados as $key ) {
+            if ($key->usuariomovil_id == $e_id) {
+                return response()->json([
+                    'id' => $key->id,
+                    'nombre' => $key->nombre,
+                    'ci' => $key->ci,
+                    'fnacimiento' => $key->fnacimiento,
+                    'sexo' => $key->sexo,
+                    'direccion' => $key->direccion,
+                    'puestoLLaboral' => $key->puestolaboral->nombre,
+                ]);
+            }
         }
     }
 

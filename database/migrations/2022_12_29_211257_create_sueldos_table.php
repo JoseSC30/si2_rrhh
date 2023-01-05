@@ -15,15 +15,14 @@ return new class extends Migration
     {
         Schema::create('sueldos', function (Blueprint $table) {
             $table->id();
+
             $table->bigInteger('empleado_id')->unsigned();
-            $table->double('monto', 8, 2)->nullable()->default(123.4567);
+            $table->float('monto');
             $table->date('fecha');
             $table->time('hora');
             $table->timestamps();
 
-            $table->foreign('empleado_id')
-            ->references('id')->on('empleados')
-            ->onDelete('cascade');
+            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete("cascade");
         });
     }
 

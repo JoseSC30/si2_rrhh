@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('recursos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Nuevo') }}
+                                  {{ __('Crear Nuevo Recurso') }}
                                 </a>
                               </div>
                         </div>
@@ -37,7 +37,6 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Detalle</th>
 										<th>Fecha Inicio</th>
 										<th>Fecha Final</th>
 
@@ -50,13 +49,12 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $recurso->nombre }}</td>
-											<td>{{ $recurso->detalle }}</td>
 											<td>{{ $recurso->fecha_inicio }}</td>
 											<td>{{ $recurso->fecha_final }}</td>
 
                                             <td>
                                                 <form action="{{ route('recursos.destroy',$recurso->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('recursos.show',$recurso->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('recursos.show',$recurso->id) }}"><i class="fa fa-fw fa-eye"></i> Más Información</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('recursos.edit',$recurso->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

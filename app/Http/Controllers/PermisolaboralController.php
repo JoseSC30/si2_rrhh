@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Permisolaboral;
 use App\Models\Usuariomovil;
 use Illuminate\Http\Request;
-
+use Carbon\carbon;
 
 /**
  * Class PermisolaboralController
@@ -53,7 +53,33 @@ class PermisolaboralController extends Controller
         return redirect()->route('permisolaborals.index')
             ->with('success', 'Permisolaboral created successfully.');
     }
+////////////////////// FUNCION PARA EL API /////////////////////////////////
+    public function enviarPermisos()
+    {
+        $rec = Permisolaboral::all('id','usuariomovil_id','detalle','fecha','hora');
 
+        return response()->json($rec);
+    }
+
+    public function registrarPermisos(Request $request)
+    {   
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->format('Y-m-d'); 
+
+        $permisoARegistrar = new Permisolaboral();
+
+        $datos = json_decode($request->getContent());
+
+        $permisoARegistrar->detalle = $datos->detalle;
+        $permisoARegistrar->usuariomovil_id = $datos->usuariomovil_id;
+        $permisoARegistrar->hora = $hora;
+        $permisoARegistrar->fecha = $fecha;
+        $permisoARegistrar->save();
+
+        return response()->json($permisoARegistrar);
+    }
+///////////////////////////////////////////////////////////////////////////
     /**
      * Display the specified resource.
      *

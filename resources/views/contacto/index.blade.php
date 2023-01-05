@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('CONTACTOS') }}
+                                {{ __('CONTACTOS DE LOS EMPLEADO') }}
                             </span>
 
                              <div class="float-right">
@@ -39,7 +39,7 @@
 										<th>EMPLEADO</th>
 										<th>TELEFONO</th>
 										<th>EMAIL</th>
-										<th>REDSOCIAL</th>
+										<th>RED SOCIAL</th>
 
                                         <th></th>
                                     </tr>
@@ -55,7 +55,7 @@
 											<td>{{ $contacto->redsocial_uno }}</td>
                                             <td>
                                                 <form action="{{ route('contactos.destroy',$contacto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('contactos.show',$contacto->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('contactos.show',$contacto->id) }}"><i class="fa fa-fw fa-eye"></i> Más Informacion</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('contactos.edit',$contacto->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

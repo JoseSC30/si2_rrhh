@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asistencia;
 use Illuminate\Http\Request;
 use App\Models\Usuariomovil;
+use Carbon\carbon;
 
 /**
  * Class AsistenciaController
@@ -52,6 +53,54 @@ class AsistenciaController extends Controller
         return redirect()->route('asistencias.index')
             ->with('success', 'Asistencia created successfully.');
     }
+    /////////////////////CODIGO PARA EL API //////////////////////////
+    public function registrosAsistencias(){
+
+        $rec = Asistencia::all('id','hora_llegada','hora_salida','fecha','usuariomovil_id');
+
+        return response()->json($rec);
+    
+    }
+
+    public function registrarLlegada(Request $request){
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->format('Y-m-d'); 
+
+        $marcarLlegada = new Asistencia();
+
+        $datos = json_decode($request->getContent());
+
+        $marcarLlegada->usuariomovil_id = $datos->usuariomovil_id;
+        $marcarLlegada->hora_llegada = $hora;
+        $marcarLlegada->hora_salida = '00:00:00';
+        $marcarLlegada->fecha = $fecha;
+        $marcarLlegada->save();
+
+        return response()->json($marcarLlegada);
+    }
+
+    public function registrarSalida(Request $request){
+
+        $datos = json_decode($request->getContent());
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+
+        $marcarLlegada = Asistencia::where("usuariomovil_id","=", $datos->usuariomovil_id )->where("hora_salida","=",'00:00:00')->first();
+    
+        if($marcarLlegada) {
+            $marcarLlegada->hora_salida = $hora;
+            $marcarLlegada->save();
+            return response()->json($marcarLlegada);
+        } else {
+            // Devolver una respuesta de error
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No se ha encontrado el registro especificado'
+            ]);
+        } 
+    }
+    //////////////////////////////////////////////////////////////////
 
     /**
      * Display the specified resource.

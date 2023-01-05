@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('email');
             $table->string('link_cv');
-            $table->string('valoracion');
+            $table->string('valoracion')->nullable();
             
             $table->timestamps();
 

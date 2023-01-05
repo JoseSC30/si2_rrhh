@@ -334,6 +334,7 @@ return [
             'url'  => 'bitacoras',
             'icon' => 'fas fa-fw fa-clone',
         ],
+        
         [
             'text' => 'ROLES',
             'url'  => 'rols',
@@ -354,7 +355,6 @@ return [
             'url'  => 'contratos',
             'icon' => 'fas fa-fw fa-file',
         ],
-
         [
             'text' => 'COMUNICADO',
             'url'  => 'comunicados',
@@ -423,11 +423,6 @@ return [
             'text' => 'CONTACTOS',
             'url'  => 'contactos',
             'icon' => 'fas fa-fw fa-address-book',
-        ],
-        [
-            'text' => 'PLANILLA-SUELDOS',
-            'url'  => 'planillasueldos',
-            'icon' => 'fas fa-fw fa-file-alt',
         ],
 
         [

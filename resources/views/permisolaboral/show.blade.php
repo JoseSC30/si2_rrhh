@@ -14,14 +14,14 @@
                             <span class="card-title">Mostrar Permiso Laboral</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('permisolaborals.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('permisolaborals.index') }}"> Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Detalle:</strong>
+                            <strong>Detalle del Permiso:</strong>
                             {{ $permisolaboral->detalle }}
                         </div>
                         <div class="form-group">
@@ -33,8 +33,16 @@
                             {{ $permisolaboral->fecha }}
                         </div>
                         <div class="form-group">
-                            <strong>Usuariomovil Id:</strong>
-                            {{ $permisolaboral->usuariomovil_id }}
+                            <strong>Usuario Movil:</strong>
+                            {{ $permisolaboral->usuariomovil->usuario }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Nombre del Empleado:</strong>
+                            {{ $permisolaboral->empleado->nombre }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Puesto Laboral:</strong>
+                            {{ $permisolaboral->empleado->puestolaboral->nombre }}
                         </div>
 
                     </div>

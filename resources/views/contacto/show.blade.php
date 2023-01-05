@@ -11,18 +11,18 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Mostrar Contacto</span>
+                            <span class="card-title">INFORMACION DE CONTACTO DEL EMPLEADO</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('contactos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('contactos.index') }}"> Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Empleado Id:</strong>
-                            {{ $contacto->empleado_id }}
+                            <strong>Nombre del Empleado:</strong>
+                            {{ $contacto->empleado->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Telefono Uno:</strong>

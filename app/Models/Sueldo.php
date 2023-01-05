@@ -24,6 +24,7 @@ class Sueldo extends Model
     
     static $rules = [
 		'empleado_id' => 'required',
+		'monto' => 'required',
 		'fecha' => 'required',
 		'hora' => 'required',
     ];

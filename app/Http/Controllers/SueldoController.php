@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sueldo;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
-
+use Carbon\carbon;
 /**
  * Class SueldoController
  * @package App\Http\Controllers
@@ -32,7 +33,14 @@ class SueldoController extends Controller
     public function create()
     {
         $sueldo = new Sueldo();
-        return view('sueldo.create', compact('sueldo'));
+        $empleado = Empleado::pluck('nombre','id');
+
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->toDateString();
+
+        return view('sueldo.create', compact('sueldo','empleado','fecha','hora'));
+        
     }
 
     /**
@@ -49,6 +57,45 @@ class SueldoController extends Controller
 
         return redirect()->route('sueldos.index')
             ->with('success', 'Sueldo created successfully.');
+    }
+
+    // FUNCION PARA EL API
+    // public function enviarSueldos(Request $request)
+    // {
+    //     // $empleado;
+    //     // $sueldosEmpleado;
+    //     $sueldosEmpleado;
+
+    //     // $empleados = Empleado::all();
+    //     // foreach ($empleados as $key) {
+    //     //     if ($key->id == $request) {
+    //     //         $empleado = $key;
+    //     //     }
+    //     // }
+
+    //     $sueldos = Sueldo::all();
+    //     foreach ($sueldos as $key) {
+    //         if($key->empleado_id == $request->body) {
+    //             // $sueldosEmpleado[] = $key ;
+    //             $sueldosEmpleado[] = [
+    //                 'id'    => $key->id,
+    //                 'empleado_id'=> $key->empleado_id,
+    //                 'monto' => $key->monto,
+    //                 'fecha' => $key->fecha,
+    //                 'hora'  => $key->hora
+    //                 ];
+    //         }
+    //     }
+
+    //     // $rec = Sueldo::all('id','monto','fecha','hora');
+
+    //     return response()->json($sueldosEmpleado);
+    // }
+    public function enviarSueldos()
+    {
+        $rec = Sueldo::all('id','empleado_id','monto','fecha','hora');
+
+        return response()->json($rec);
     }
 
     /**
@@ -73,8 +120,13 @@ class SueldoController extends Controller
     public function edit($id)
     {
         $sueldo = Sueldo::find($id);
+        $empleado = Empleado::pluck('nombre','id');
 
-        return view('sueldo.edit', compact('sueldo'));
+        $TiempoActual = Carbon::now();
+        $hora = $TiempoActual->toTimeString();
+        $fecha = $TiempoActual->toDateString();
+
+        return view('sueldo.edit', compact('sueldo','empleado','fecha','hora'));
     }
 
     /**

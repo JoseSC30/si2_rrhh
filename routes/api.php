@@ -30,6 +30,13 @@ Route::get('/get_empleados', [App\Http\Controllers\UsuariomovilController::class
 Route::post('/post_empleados', [App\Http\Controllers\UsuariomovilController::class, 'buscarEmpleado']);
 */
 Route::get('/get_comunicados', [App\Http\Controllers\ComunicadoController::class, 'enviarComunicados']);//API de prueba
+Route::get('/get_sueldos', [App\Http\Controllers\SueldoController::class, 'enviarSueldos']);//API de prueba
+Route::get('/get_permisos', [App\Http\Controllers\PermisolaboralController::class, 'enviarPermisos']);//API de prueba
+Route::post('/post_permisos', [App\Http\Controllers\PermisolaboralController::class, 'registrarPermisos']);//API de prueba
+
+Route::post('/post_llegada', [App\Http\Controllers\AsistenciaController::class, 'registrarLlegada']);//API de prueba
+Route::post('/post_salida', [App\Http\Controllers\AsistenciaController::class, 'registrarSalida']);//API de prueba
+Route::get('/get_asistencias', [App\Http\Controllers\AsistenciaController::class, 'registrosAsistencias']);//API de prueba
 //
 Route::post('login', [UsuariomovilController::class,'login']);
 //

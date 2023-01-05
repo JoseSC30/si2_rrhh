@@ -2,12 +2,12 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('nombre') }}
+            {{ Form::label('nombre del recurso o beneficio') }}
             {{ Form::text('nombre', $recurso->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('detalle') }}
+            {{ Form::label('detalles') }}
             {{ Form::text('detalle', $recurso->detalle, ['class' => 'form-control' . ($errors->has('detalle') ? ' is-invalid' : ''), 'placeholder' => 'Detalle']) }}
             {!! $errors->first('detalle', '<div class="invalid-feedback">:message</div>') !!}
         </div>
@@ -24,6 +24,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
 </div>

@@ -11,10 +11,14 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    //
+    //La funcion comentada me pide estar autenticado para
+    //para poder usar las posteriores funciones.
+    //
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -24,5 +28,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function bienvenido()
+    {
+        return view('welcome');
     }
 }

@@ -25,7 +25,6 @@ class Empleosolicitud extends Model
 		'nombre' => 'required',
 		'email' => 'required',
 		'link_cv' => 'required',
-		'valoracion' => 'required',
     ];
 
     protected $perPage = 20;
@@ -37,6 +36,9 @@ class Empleosolicitud extends Model
      */
     protected $fillable = ['puestolaboral_id','nombre','email','link_cv','valoracion'];
 
-
+    public function puestolaboral()
+    {
+        return $this->hasOne('App\Models\Puestolaboral', 'id', 'puestolaboral_id');
+    }
 
 }

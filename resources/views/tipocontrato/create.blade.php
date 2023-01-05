@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Crear Tipo contrato</span>
+                        <span class="card-title">Crear un nuevo tipo de contrato</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('tipocontratos.store') }}"  role="form" enctype="multipart/form-data">

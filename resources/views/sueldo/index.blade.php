@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('SUELDOS') }}
+                                {{ __('Lista de sueldo de los empleados') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('sueldos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Registrar Nuevo Sueldo') }}
                                 </a>
                               </div>
                         </div>
@@ -39,7 +39,7 @@
 										<th>Empleado</th>
 										<th>Monto</th>
 										<th>Fecha</th>
-										<th>Hora</th>
+                                        <th>Hora</th>
 
                                         <th></th>
                                     </tr>
@@ -49,18 +49,18 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $sueldo->empleado_id }}</td>
-											<td>{{ $sueldo->monto }}</td>
+											<td>{{ $sueldo->empleado->nombre }}</td>
+											<td>{{ $sueldo->monto }} bs.</td>
 											<td>{{ $sueldo->fecha }}</td>
 											<td>{{ $sueldo->hora }}</td>
 
                                             <td>
                                                 <form action="{{ route('sueldos.destroy',$sueldo->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('sueldos.show',$sueldo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('sueldos.edit',$sueldo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('sueldos.show',$sueldo->id) }}"><i class="fa fa-fw fa-eye"></i> Más Información</a> -->
+                                                    <a class="btn btn-sm btn-success" href="{{ route('sueldos.edit',$sueldo->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

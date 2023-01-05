@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('HORARIOS') }}
+                                {{ __('LISTA DE HORARIOS') }}
                             </span>
 
                              <div class="float-right">
@@ -52,7 +52,7 @@
 
                                             <td>
                                                 <form action="{{ route('horarios.destroy',$horario->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('horarios.show',$horario->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('horarios.show',$horario->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('horarios.edit',$horario->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

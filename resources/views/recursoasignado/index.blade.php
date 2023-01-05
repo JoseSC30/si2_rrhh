@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('RECURSO ASIGNADO A PUESTOS LABORALES') }}
+                                {{ __('Aquí se habilitaran los recursos y beneficios para los empleados.') }}
                             </span>
 
                              <div class="float-right">

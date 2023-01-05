@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('TIPO CONTRATO') }}
+                                {{ __('TIPOS DE CONTRATOS') }}
                             </span>
 
                              <div class="float-right">
@@ -54,7 +54,7 @@
 
                                             <td>
                                                 <form action="{{ route('tipocontratos.destroy',$tipocontrato->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipocontratos.show',$tipocontrato->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('tipocontratos.show',$tipocontrato->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('tipocontratos.edit',$tipocontrato->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

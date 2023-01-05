@@ -66,6 +66,11 @@
        
                     </div>
                 </div>
+                <div class="col-auto bg-danger p-5 text-center m-4 row justify-content-center">
+                    <a href="{{ route('empleosolicituds.create') }}" class="mt-4 text-black-900 dark:text-black-400 text-sm">
+                        {{ __('¿Solicitas Empleo? Dale click aquí.') }}
+                    </a>
+                </div>
         </div>
     </body>
 </html>
