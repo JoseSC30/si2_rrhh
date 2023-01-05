@@ -52,7 +52,7 @@
 
                                             <td>
                                                 <form action="{{ route('rols.destroy',$rol->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('rols.show',$rol->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('rols.show',$rol->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('rols.edit',$rol->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

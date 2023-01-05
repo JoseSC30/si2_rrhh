@@ -33,15 +33,15 @@
             <div class="col-md-7">
             <div class="form-group">
                 {{ Form::label('empleado') }}
-                {{ Form::select('empleado_id',$empl, $contrato->empleado_id, ['class' => 'form-control' . ($errors->has('empleado_id') ? ' is-invalid' : ''), 'placeholder' => 'Empleado ']) }}
+                {{ Form::select('empleado_id',$empl, $contrato->empleado_id, ['class' => 'form-control' . ($errors->has('empleado_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar... ']) }}
                 {!! $errors->first('empleado_id', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             </div>
 
             <div class="col-md-5">
             <div class="form-group">
-                {{ Form::label('tipoContrato') }}
-                {{ Form::select('tipoContrato_id',$tcon, $contrato->tipoContrato_id, ['class' => 'form-control' . ($errors->has('tipoContrato_id') ? ' is-invalid' : ''), 'placeholder' => 'Tipocontrato ']) }}
+                {{ Form::label('tipo de Contrato') }}
+                {{ Form::select('tipoContrato_id',$tcon, $contrato->tipoContrato_id, ['class' => 'form-control' . ($errors->has('tipoContrato_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar... ']) }}
                 {!! $errors->first('tipoContrato_id', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             </div>
@@ -51,8 +51,8 @@
         <div class="row">
             <div class="col-md-4">
             <div class="form-group">
-                {{ Form::label('estadoContrato') }}
-                {{ Form::select('estadoContrato_id',$econ, $contrato->estadoContrato_id, ['class' => 'form-control' . ($errors->has('estadoContrato_id') ? ' is-invalid' : ''), 'placeholder' => 'Estadocontrato ']) }}
+                {{ Form::label('estado del Contrato') }}
+                {{ Form::select('estadoContrato_id',$econ, $contrato->estadoContrato_id, ['class' => 'form-control' . ($errors->has('estadoContrato_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar... ']) }}
                 {!! $errors->first('estadoContrato_id', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             </div>
@@ -60,7 +60,7 @@
             <div class="col-md-4">
             <div class="form-group">
                 {{ Form::label('turno') }}
-                {{ Form::select('turno_id',$tur, $contrato->turno_id, ['class' => 'form-control' . ($errors->has('turno_id') ? ' is-invalid' : ''), 'placeholder' => 'Turno']) }}
+                {{ Form::select('turno_id',$tur, $contrato->turno_id, ['class' => 'form-control' . ($errors->has('turno_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar...']) }}
                 {!! $errors->first('turno_id', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             </div>

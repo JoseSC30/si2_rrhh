@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('CONTRATOS') }}
+                                {{ __('LISTA DE CONTRATOS') }}
                             </span>
 
                             <div class="float-right">
@@ -42,11 +42,9 @@
                                         
 										<th>REGISTRADO POR</th>
 										<th>EMPLEADO </th>
-										
-										<th>ESTADO CONTRATO</th>
-										<th>TURNO</th>
 										<th>FECHA</th>
-										<th>HORA</th>
+										<th>ESTADO CONTRATO</th>
+										
 										
 
                                         <th></th>
@@ -59,20 +57,18 @@
                                             
 											<td>{{ $contrato->user->empleados->nombre}}</td>
 											<td>{{ $contrato->empleado->nombre }}</td>
-											
-											<td>{{ $contrato->estadoContrato->nombre }}</td>
-											<td>{{ $contrato->turno->nombre }}</td>
 											<td>{{ $contrato->fecha }}</td>
-											<td>{{ $contrato->hora }}</td>
+											<td>{{ $contrato->estadoContrato->nombre }}</td>
+											
 											
 
                                             <td>
                                                 <form action="{{ route('contratos.destroy',$contrato->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('contratos.show',$contrato->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('contratos.show',$contrato->id) }}"><i class="fa fa-fw fa-eye"></i> Más Información</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('contratos.edit',$contrato->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <!-- <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button> -->
                                                 </form>
                                             </td>
                                         </tr>

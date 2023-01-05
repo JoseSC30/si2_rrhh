@@ -29,15 +29,15 @@
                             {{ $contrato->empleado->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Tipocontrato Id:</strong>
+                            <strong>Tipo de contrato:</strong>
                             {{ $contrato->tipoContrato->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Estadocontrato Id:</strong>
+                            <strong>Estado del contrato:</strong>
                             {{ $contrato->estadoContrato->nombre}}
                         </div>
                         <div class="form-group">
-                            <strong>Turno Id:</strong>
+                            <strong>Turno:</strong>
                             {{ $contrato->turno->nombre}}
                         </div>
                         <div class="form-group">

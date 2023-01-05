@@ -54,8 +54,8 @@
                                             
                                             <td>
                                                 <form action="{{ route('turnos.destroy',$turno->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('turnos.show',$turno->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('turnos.edit',$turno->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('turnos.show',$turno->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
+                                                    <!-- <a class="btn btn-sm btn-success" href="{{ route('turnos.edit',$turno->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a> -->
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>

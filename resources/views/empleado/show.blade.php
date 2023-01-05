@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Empleado</span>
+                            <span class="card-title">Información del Empleado</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('empleados.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('empleados.index') }}"> Atrás</a>
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                             {{ $empleado->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Ci:</strong>
+                            <strong>Número de Carnet:</strong>
                             {{ $empleado->ci }}
                         </div>
                         <div class="form-group">

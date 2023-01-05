@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Mostrar Comunicado</span>
+                            <span class="card-title">Detalles del Comunicado</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('comunicados.index') }}"> Atrás</a>
