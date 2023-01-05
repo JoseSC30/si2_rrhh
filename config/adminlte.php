@@ -328,48 +328,39 @@ return [
         ],
 
 
-        ['header' => 'ADMINISTRADOR'],
+        ['header' => 'SISTEMA'],
+
         [
             'text' => 'BITACORA',
             'url'  => 'bitacoras',
             'icon' => 'fas fa-fw fa-clone',
         ],
-        
         [
             'text' => 'ROLES',
             'url'  => 'rols',
             'icon' => 'fas fa-fw fa-user-secret',
         ],
+        
+        ['header' => 'EMPLEADOS'],
+
         [
             'text' => 'EMPLEADOS',
             'url'  => 'empleados',
             'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'USUARIO',
-            'url'  => 'users',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'CONTACTOS',
+            'url'  => 'contactos',
+            'icon' => 'fas fa-fw fa-address-book',
         ],
         [
-            'text' => 'CONTRATO-EMPLEADO',
+            'text' => 'CONTRATOS',
             'url'  => 'contratos',
             'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text' => 'COMUNICADO',
-            'url'  => 'comunicados',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-
-        [
-            'text' => 'SUELDOS',
-            'url'  => 'sueldos',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-
+        ],    
         [
             'text'    => 'Ajustes de contrato',
-            'icon' => 'fas fa-fw fa-group',
+            'icon' => 'fas fa-fw fa-clone',
             'submenu' => [
                 [
                     'text' => 'Horarios',
@@ -395,50 +386,58 @@ return [
                 ],
                 
             ],
-        ],
-
-        [
-            'text' => 'COMUNICADO',
-            'url'  => 'comunicados',
-            'icon' => 'fas fa-fw fa-file',
         ], 
-
         [
-
-            'text' => 'RECURSOS',
-            'url'  => 'recursos',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text' => 'PUESTO-LABORAL',
+            'text' => 'PUESTOS LABORALES',
             'url'  => 'puestolaborals',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
-            'text' => 'RECURSO-ASIGNADO',
-            'url'  => 'recursoasignados',
-            'icon' => 'fas fa-fw fa-file',
+            'text' => 'USUARIOS (web)',
+            'url'  => 'users',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'CONTACTOS',
-            'url'  => 'contactos',
-            'icon' => 'fas fa-fw fa-address-book',
-        ],
-
-        [
-            'text' => 'USUARIO MOVIL',
+            'text' => 'USUARIOS MOVIL',
             'url'  => 'usuariomovils',
             'icon' => 'fas fa-fw fa-file',
+        ],        
+        [
+            'text'    => 'RECURSOS',
+            'icon' => 'fas fa-fw fa-clone',
+            'submenu' => [
+                [
+                    'text' => 'Recursos',
+                    'url'  => 'recursos',
+                    'icon' => 'fas fa-fw fa-file',
+                ],
+                [
+                    'text' => 'Recursos Asignados',
+                    'url'  => 'recursoasignados',
+                    'icon' => 'fas fa-fw fa-file',
+                ],                
+            ],
         ],
 
+        ['header' => 'REGISTROS'],
+
+        [
+            'text' => 'COMUNICADOS',
+            'url'  => 'comunicados',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'SUELDOS',
+            'url'  => 'sueldos',
+            'icon' => 'fas fa-fw fa-file',
+        ],
         [
             'text' => 'ASISTENCIAS',
             'url'  => 'asistencias',
             'icon' => 'fas fa-fw fa-file',
         ],
-
         [
-            'text' => 'PERMISOS LABORALES',
+            'text' => 'PERMISOS',
             'url'  => 'permisolaborals',
             'icon' => 'fas fa-fw fa-file',
         ],
@@ -447,11 +446,11 @@ return [
             'url'  => 'empleosolicituds',
             'icon' => 'fas fa-fw fa-users',
         ],
-        [
-            'text' => 'cambiar contraseña',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // [
+        //     'text' => 'cambiar contraseña',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
 
         /*
         [

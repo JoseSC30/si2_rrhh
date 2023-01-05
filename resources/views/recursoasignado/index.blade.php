@@ -52,7 +52,7 @@
 
                                             <td>
                                                 <form action="{{ route('recursoasignados.destroy',$recursoasignado->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('recursoasignados.show',$recursoasignado->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('recursoasignados.show',$recursoasignado->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('recursoasignados.edit',$recursoasignado->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
