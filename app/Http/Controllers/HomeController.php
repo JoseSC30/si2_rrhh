@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 //
+use Illuminate\Support\Carbon;
 use App\Models\Empleado;
 use App\Models\Comunicado;
+use App\Models\Empleosolicitud;
 use App\Models\Contacto;
 
 class HomeController extends Controller
@@ -31,14 +33,25 @@ class HomeController extends Controller
         $totalEmpleados = Empleado::count();
         $totalComunicados = Comunicado::count();
 
-        $todoscomun = Comunicado::all('id','titulo','detalle');
-        $cadena = json_decode($todoscomun);
-        $Comun = end($cadena);
-        $xComun = $Comun;
+        //$diaActual=;
+        //$añoActual=;
+        $mesActual= Carbon::now()->format('m'); 
 
+        $totalSolicitudEmpleoMes = Empleosolicitud::whereMonth('created_at',$mesActual)->count();
         $totalContactos = Contacto::count();
 
-        return view('home', compact('totalEmpleados','totalComunicados','xComun','totalContactos'));
+        //ultimoComunicado 
+        $allComunicados = Comunicado::all('id','titulo','detalle');
+        $cadenacomun = json_decode($allComunicados);
+        $ultimoComunicado = end($cadenacomun);
+
+        //ultimoSolicitudEmpleo
+        $allSolicitudEmpleo = Empleosolicitud::all();
+        $cadenasoli = json_decode($allSolicitudEmpleo);
+        $ultimoSolicitudEmpleo= end($cadenasoli);
+
+        return view('home', compact('totalEmpleados','totalComunicados','totalSolicitudEmpleoMes','totalContactos',
+                                    'ultimoComunicado','ultimoSolicitudEmpleo'));
 
     }
 
